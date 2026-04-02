@@ -1,4 +1,4 @@
-import { Calendar, MapPin, ExternalLink } from "lucide-react";
+import { Calendar, MapPin } from "lucide-react";
 
 const experienceData = [
   {

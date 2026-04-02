@@ -1,4 +1,4 @@
-import { Code, Package, Globe } from "lucide-react";
+import { } from "lucide-react";
 
 const skillsData = {
   frontend: [
