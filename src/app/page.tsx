@@ -1,13 +1,10 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import NavigationElegant from "@/components/NavigationElegant";
-import HeroSimple from "@/components/HeroSimple";
-import SkillsElegant from "@/components/SkillsElegant";
-import ExperienceElegant from "@/components/ExperienceElegant";
-import ProjectsElegant from "@/components/ProjectsElegant";
-import EducationElegant from "@/components/EducationElegant";
-import AnimatedBackground from "@/components/AnimatedBackground";
+import NavigationElegant from "../components/NavigationElegant";
+import HeroSimple from "../components/HeroSimple";
+import SkillsElegant from "../components/SkillsElegant";
+import ExperienceElegant from "../components/ExperienceElegant";
+import ProjectsElegant from "../components/ProjectsElegant";
+import EducationElegant from "../components/EducationElegant";
+import AnimatedBackground from "../components/AnimatedBackground";
 
 export default function Home() {
   return (
