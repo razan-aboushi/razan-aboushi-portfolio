@@ -13,7 +13,7 @@ const experienceData = [
       "Spearheaded SEO and Core Web Vitals improvements utilizing Google Search Console and Lighthouse",
       "Implemented Single Sign-On (SSO) features, handling authentication and multiple login options for users",
       "Worked on Spotlights, Commercial Ads, and Listings Comparison features to improve visibility and engagement",
-      "Optimized JavaScript bundles with code splitting, boosting Core Web Vitals more than 40%",
+      "Optimized JavaScript bundles with code splitting, boosting Core Web Vitals more than 20%",
       "Reduced page load time by 2.5+ seconds through build enhancements",
       "Resolved SEO issues including broken links, redirects, and server errors, improving site indexing and crawl efficiency",
       "Removed unnecessary dependencies, reducing bundle size, build complexity, and potential security risks while fixing memory leaks",
