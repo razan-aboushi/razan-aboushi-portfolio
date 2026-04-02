@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import { motion } from "framer-motion";
 import { Calendar, MapPin, ExternalLink } from "lucide-react";
-=======
-import { Calendar, MapPin } from "lucide-react";
->>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
+
 
 const experienceData = [
   {
@@ -17,11 +13,7 @@ const experienceData = [
       "Spearheaded SEO and Core Web Vitals improvements utilizing Google Search Console and Lighthouse",
       "Implemented Single Sign-On (SSO) features, handling authentication and multiple login options for users",
       "Worked on Spotlights, Commercial Ads, and Listings Comparison features to improve visibility and engagement",
-<<<<<<< HEAD
       "Optimized JavaScript bundles with code splitting, boosting Core Web Vitals more than 20%",
-=======
-      "Optimized JavaScript bundles with code splitting, boosting Core Web Vitals more than 40%",
->>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
       "Reduced page load time by 2.5+ seconds through build enhancements",
       "Resolved SEO issues including broken links, redirects, and server errors, improving site indexing and crawl efficiency",
       "Removed unnecessary dependencies, reducing bundle size, build complexity, and potential security risks while fixing memory leaks",
@@ -59,85 +51,11 @@ const experienceData = [
     ],
   },
 ];
-
-<<<<<<< HEAD
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.3,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, x: -50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.6,
-    },
-  },
-};
-
-=======
->>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
 export default function ExperienceElegant() {
   return (
     <section id="experience" className="ns-section">
       <div className="ns-container">
         <div className="ns-section-header">
-<<<<<<< HEAD
-          <motion.h2
-            className="ns-section-title"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            Experience
-          </motion.h2>
-        </div>
-        
-        <div className="relative">
-          {/* Timeline line - Left aligned */}
-          <div className="absolute left-8 top-0 h-full w-0.5 bg-gray-700"></div>
-          
-          <motion.div
-            className="space-y-12"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {experienceData.map((exp, index) => (
-              <motion.div
-                key={exp.company}
-                className="relative flex items-start ml-20"
-                variants={itemVariants}
-              >
-                {/* Timeline dot */}
-                <div className="absolute -left-12 top-2 w-4 h-4 bg-purple-500 rounded-full border-4 border-gray-900 z-10"></div>
-                
-                {/* Content - Full width */}
-                <div className="w-full max-w-4xl">
-                  <motion.div
-                    className="ns-card"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <h3 className="text-2xl font-semibold text-white mb-2">
-                      {exp.position}
-                    </h3>
-                    
-                    <div className="flex items-center gap-2 text-purple-400 mb-1">
-                      <span className="font-medium">{exp.company}</span>
-                    </div>
-                    
-=======
           <h2 className="ns-section-title animate-fade-in">
             Experience
           </h2>
@@ -164,7 +82,6 @@ export default function ExperienceElegant() {
                     <div className="flex items-center gap-2 text-purple-400 mb-1">
                       <span className="font-medium">{exp.company}</span>
                     </div>
->>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
                     <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
                       <div className="flex items-center gap-1">
                         <Calendar size={14} />
@@ -175,10 +92,6 @@ export default function ExperienceElegant() {
                         <span>{exp.location}</span>
                       </div>
                     </div>
-<<<<<<< HEAD
-                    
-=======
->>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
                     <ul className="space-y-2 text-sm text-gray-300">
                       {exp.achievements.map((achievement, achIndex) => (
                         <li key={achIndex} className="flex items-start gap-2">
@@ -187,19 +100,11 @@ export default function ExperienceElegant() {
                         </li>
                       ))}
                     </ul>
-<<<<<<< HEAD
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-=======
                   </div>
                 </div>
               </div>
             ))}
           </div>
->>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
         </div>
       </div>
     </section>
