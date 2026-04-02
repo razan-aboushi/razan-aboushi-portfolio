@@ -4,11 +4,15 @@ on:
   push:
     branches:
       - main
+<<<<<<< HEAD
   workflow_dispatch:
+=======
+>>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
 
 permissions:
   contents: read
   pages: write
+<<<<<<< HEAD
   id-token: write
 
 concurrency:
@@ -17,14 +21,24 @@ concurrency:
 
 jobs:
   build:
+=======
+
+jobs:
+  build-and-deploy:
+>>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+<<<<<<< HEAD
+=======
+
+>>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+<<<<<<< HEAD
       - name: Install dependencies
         run: npm ci
       - name: Build
@@ -45,3 +59,17 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+=======
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+>>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39

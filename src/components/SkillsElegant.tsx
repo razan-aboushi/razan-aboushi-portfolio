@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Code, Package, Globe } from "lucide-react";
+=======
+import { } from "lucide-react";
+>>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
 
 const skillsData = {
   frontend: [

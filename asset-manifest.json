@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/razan-aboushi-portfolio/static/css/main.10ea50eb.css",
+    "main.js": "/razan-aboushi-portfolio/static/js/main.17db0861.js",
+    "static/js/453.8ea06065.chunk.js": "/razan-aboushi-portfolio/static/js/453.8ea06065.chunk.js",
+    "index.html": "/razan-aboushi-portfolio/index.html",
+    "main.10ea50eb.css.map": "/razan-aboushi-portfolio/static/css/main.10ea50eb.css.map",
+    "main.17db0861.js.map": "/razan-aboushi-portfolio/static/js/main.17db0861.js.map",
+    "453.8ea06065.chunk.js.map": "/razan-aboushi-portfolio/static/js/453.8ea06065.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.10ea50eb.css",
+    "static/js/main.17db0861.js"
+  ]
+}

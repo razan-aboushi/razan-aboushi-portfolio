@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+"use client";
+
+>>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
 import { useState, useEffect } from "react";
 
 export default function AnimatedBackground() {

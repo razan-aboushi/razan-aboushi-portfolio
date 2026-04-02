@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
+<<<<<<< HEAD
     "target": "ES2017",
+=======
+    "target": "es5",
+>>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
     "lib": [
       "dom",
       "dom.iterable",
@@ -8,6 +12,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
+<<<<<<< HEAD
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -40,5 +45,21 @@
   ],
   "exclude": [
     "node_modules"
+=======
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src"
+>>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
   ]
 }
