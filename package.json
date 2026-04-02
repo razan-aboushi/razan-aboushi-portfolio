@@ -1,7 +1,8 @@
 {
   "name": "razan-aboushi-portfolio",
+  "description": "Professional portfolio website for Razan Aboushi - Full Stack Engineer, built with React.js and TypeScript.",
   "homepage": "https://razan-aboushi.github.io/razan-aboushi-portfolio",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
