@@ -41,136 +41,69 @@ const skillsData = {
   ],
 };
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
-
 export default function SkillsElegant() {
   return (
     <section id="skills" className="ns-section">
       <div className="ns-container">
         <div className="ns-section-header">
-          <motion.h2
-            className="ns-section-title"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
+          <h2 className="ns-section-title animate-fade-in">
             Skills & Technologies
-          </motion.h2>
+          </h2>
+          <p className="ns-section-description animate-fade-in-delay">
+            A comprehensive toolkit of modern web development technologies and tools
+          </p>
         </div>
         
-        <div className="space-y-12">
+        <div className="space-y-12 animate-fade-in-delay-2">
           <div className="text-center mb-8">
-            <motion.h3
-              className="text-2xl font-semibold text-white mb-6"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
+            <h3 className="text-2xl font-semibold text-white mb-6 animate-slide-in-left">
               Frontend
-            </motion.h3>
-            <motion.div
-              className="flex flex-wrap gap-2 justify-center"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              {skillsData.frontend.map((skill, index) => (
-                <motion.span
+            </h3>
+            <div className="flex flex-wrap gap-2 justify-center animate-fade-in-delay-3">
+              {skillsData.frontend.map((skill) => (
+                <span
                   key={skill}
-                  className="ns-lang-card"
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="ns-lang-card animate-scale-in"
+                  style={{ animationDelay: `${Math.random() * 0.3}s` }}
                 >
                   {skill}
-                </motion.span>
+                </span>
               ))}
-            </motion.div>
+            </div>
           </div>
           
           <div className="text-center mb-8">
-            <motion.h3
-              className="text-2xl font-semibold text-white mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
+            <h3 className="text-2xl font-semibold text-white mb-6 animate-slide-in-right">
               Backend
-            </motion.h3>
-            <motion.div
-              className="flex flex-wrap gap-2 justify-center"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              {skillsData.backend.map((skill, index) => (
-                <motion.span
+            </h3>
+            <div className="flex flex-wrap gap-2 justify-center animate-fade-in-delay-3">
+              {skillsData.backend.map((skill) => (
+                <span
                   key={skill}
-                  className="ns-lang-card"
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="ns-lang-card animate-scale-in"
+                  style={{ animationDelay: `${Math.random() * 0.3}s` }}
                 >
                   {skill}
-                </motion.span>
+                </span>
               ))}
-            </motion.div>
+            </div>
           </div>
           
           <div className="text-center">
-            <motion.h3
-              className="text-2xl font-semibold text-white mb-6"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              Tools
-            </motion.h3>
-            <motion.div
-              className="ns-grid-cols-2"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              {skillsData.tools.map((tool, index) => (
-                <motion.span
-                  key={tool}
-                  className="ns-lang-card"
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+            <h3 className="text-2xl font-semibold text-white mb-6 animate-slide-in-left">
+              Tools & Methodologies
+            </h3>
+            <div className="ns-grid-cols-2 animate-fade-in-delay-3">
+              {skillsData.tools.map((skill) => (
+                <span
+                  key={skill}
+                  className="ns-lang-card animate-scale-in"
+                  style={{ animationDelay: `${Math.random() * 0.3}s` }}
                 >
-                  {tool}
-                </motion.span>
+                  {skill}
+                </span>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

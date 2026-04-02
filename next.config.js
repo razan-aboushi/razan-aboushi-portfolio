@@ -16,7 +16,8 @@ const nextConfig = {
   },
   output: 'export',
   trailingSlash: true,
-    compiler: {
+  distDir: 'out',
+  compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   poweredByHeader: false,

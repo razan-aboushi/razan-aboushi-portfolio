@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import NavigationElegant from "@/components/NavigationElegant";
 import HeroSimple from "@/components/HeroSimple";
-import SkillsStatic from "@/components/SkillsStatic";
+import SkillsElegant from "@/components/SkillsElegant";
 import ExperienceElegant from "@/components/ExperienceElegant";
 import ProjectsElegant from "@/components/ProjectsElegant";
 import EducationElegant from "@/components/EducationElegant";
@@ -16,7 +16,7 @@ export default function Home() {
       <NavigationElegant />
       <main className="relative z-10">
         <HeroSimple />
-        <SkillsStatic />
+        <SkillsElegant />
         <ExperienceElegant />
         <ProjectsElegant />
         <EducationElegant />
