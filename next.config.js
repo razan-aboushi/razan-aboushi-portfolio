@@ -16,8 +16,8 @@ const nextConfig = {
   },
   output: 'export',
   trailingSlash: true,
-  basePath: '/My-portfolio',
-  assetPrefix: '/My-portfolio',
+  basePath: '/razan-aboushi-portfolio',
+  assetPrefix: '/razan-aboushi-portfolio',
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
