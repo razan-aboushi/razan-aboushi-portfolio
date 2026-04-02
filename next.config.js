@@ -16,9 +16,7 @@ const nextConfig = {
   },
   output: 'export',
   trailingSlash: true,
-  basePath: '/razan-aboushi-portfolio',
-  assetPrefix: '/razan-aboushi-portfolio',
-  compiler: {
+    compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   poweredByHeader: false,
