@@ -1,12 +1,12 @@
 # Razan Aboushi - Full Stack Engineer Portfolio
 
-A modern, performant portfolio website built with Next.js 15, TypeScript, and Tailwind CSS.
+A modern, performant portfolio website built with React.js, TypeScript, and Tailwind CSS.
 
 ## 🚀 Features
 
-- **Modern Tech Stack**: Next.js 15 (App Router), TypeScript, Tailwind CSS
+- **Modern Tech Stack**: React.js, TypeScript, Tailwind CSS
 - **Responsive Design**: Mobile-first approach with glassmorphism effects
-- **Smooth Animations**: Framer Motion for professional micro-interactions
+- **Smooth Animations**: CSS keyframes for professional micro-interactions
 - **Performance Optimized**: Core Web Vitals focused, fast loading times
 - **Accessibility**: Semantic HTML5, ARIA labels, keyboard navigation
 - **Dark Mode**: Sleek dark theme by default
@@ -15,10 +15,10 @@ A modern, performant portfolio website built with Next.js 15, TypeScript, and Ta
 ## 🛠️ Technologies Used
 
 ### Frontend
-- **Next.js 15** - React framework with App Router
+- **React.js** - JavaScript library for building user interfaces
 - **TypeScript** - Type-safe JavaScript
 - **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
+- **CSS Animations** - Custom keyframe animations
 - **Lucide React** - Icon library
 
 ### Development Tools
