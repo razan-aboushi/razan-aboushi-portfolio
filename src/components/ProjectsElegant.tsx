@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-import { motion } from "framer-motion";
-import { ExternalLink, Package, Code, Globe } from "lucide-react";
-=======
 import { Code, Package, Globe, ExternalLink } from "lucide-react";
->>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
 
 const projectsData = [
   {
@@ -129,69 +124,29 @@ const projectsData = [
     icon: Code,
   },
 ];
-
-<<<<<<< HEAD
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-    },
-  },
-};
-
-=======
->>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
 export default function ProjectsElegant() {
   return (
     <section id="projects" className="ns-section">
       <div className="ns-container">
         <div className="ns-section-header">
-<<<<<<< HEAD
-          <motion.h2
-            className="ns-section-title"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
+          <h2 className="ns-section-title animate-fade-in">
             Projects & NPM Packages
-          </motion.h2>
+          </h2>
+          <p className="ns-section-description animate-fade-in-delay">
+            A showcase of my development work and open-source contributions
+          </p>
         </div>
         
-        <motion.div
-          className="ns-grid"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {projectsData.slice(0, 12).map((project, index) => {
+        <div className="ns-grid animate-fade-in-delay-2">
+          {projectsData.map((project, index) => {
             const Icon = project.icon;
             return (
-              <motion.div
-                key={project.title}
-                className="group"
-                variants={itemVariants}
+              <div 
+                key={index}
+                className="group animate-fade-in"
+                style={{ animationDelay: `${0.3 + index * 0.05}s` }}
               >
-                <motion.div
-                  className="ns-card h-full"
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <div className="ns-card h-full">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="p-3 bg-purple-500/10 rounded-lg text-purple-400">
                       <Icon size={24} />
@@ -200,9 +155,7 @@ export default function ProjectsElegant() {
                       <h3 className="text-xl font-semibold text-white group-hover:text-purple-400 transition-colors">
                         {project.title}
                       </h3>
-                      <span className="text-sm text-gray-400">
-                        {project.type}
-                      </span>
+                      <span className="text-sm text-gray-400">{project.type}</span>
                     </div>
                   </div>
                   
@@ -222,9 +175,9 @@ export default function ProjectsElegant() {
                   </div>
                   
                   <div className="flex gap-4">
-                    {(project.links as any).npm && (
+                    {project.links.npm && (
                       <a
-                        href={(project.links as any).npm}
+                        href={project.links.npm}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-1 text-sm text-purple-400 hover:text-purple-300 transition-colors"
@@ -233,20 +186,9 @@ export default function ProjectsElegant() {
                         NPM
                       </a>
                     )}
-                    {(project.links as any).demo && (
+                    {project.links.github && (
                       <a
-                        href={(project.links as any).demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1 text-sm text-purple-400 hover:text-purple-300 transition-colors"
-                      >
-                        <ExternalLink size={14} />
-                        Live Demo
-                      </a>
-                    )}
-                    {(project.links as any).github && (
-                      <a
-                        href={(project.links as any).github}
+                        href={project.links.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-1 text-sm text-purple-400 hover:text-purple-300 transition-colors"
@@ -256,94 +198,13 @@ export default function ProjectsElegant() {
                       </a>
                     )}
                   </div>
-                </motion.div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-        
-        <motion.div
-          className="text-center mt-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-=======
-          <h2 className="ns-section-title animate-fade-in">
-            Projects & NPM Packages
-          </h2>
-          <p className="ns-section-description animate-fade-in-delay">
-            A showcase of my development work and open-source contributions
-          </p>
-        </div>
-        
-        <div className="ns-grid animate-fade-in-delay-2">
-          {projectsData.map((project, index) => (
-            <div 
-              key={index}
-              className="group animate-fade-in"
-              style={{ animationDelay: `${0.3 + index * 0.05}s` }}
-            >
-              <div className="ns-card h-full">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="p-3 bg-purple-500/10 rounded-lg text-purple-400">
-                    <project.icon size={24} />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-white group-hover:text-purple-400 transition-colors">
-                      {project.title}
-                    </h3>
-                    <span className="text-sm text-gray-400">{project.type}</span>
-                  </div>
-                </div>
-                
-                <p className="text-gray-300 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 bg-gray-800 text-gray-300 rounded text-xs border border-gray-700"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="flex gap-4">
-                  {project.links.npm && (
-                    <a
-                      href={project.links.npm}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-sm text-purple-400 hover:text-purple-300 transition-colors"
-                    >
-                      <Package size={14} />
-                      NPM
-                    </a>
-                  )}
-                  {project.links.github && (
-                    <a
-                      href={project.links.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-sm text-purple-400 hover:text-purple-300 transition-colors"
-                    >
-                      <Code size={14} />
-                      Source
-                    </a>
-                  )}
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         
         <div className="text-center mt-16 animate-fade-in">
->>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
           <div className="inline-flex items-center gap-4">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
             <div className="flex flex-col items-center gap-4">
@@ -362,11 +223,7 @@ export default function ProjectsElegant() {
             </div>
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
           </div>
-<<<<<<< HEAD
-        </motion.div>
-=======
         </div>
->>>>>>> a9fc065cbaeee27a6828af10c955d5e12fc11d39
       </div>
     </section>
   );
