@@ -1,6 +1,93 @@
-# Getting Started with Create React App
+# Razan Aboushi - Full Stack Engineer Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🚀 Live Portfolio
+
+**Visit my professional portfolio:** https://razan-aboushi.github.io/razan-aboushi-portfolio/
+
+## 📋 About
+
+Professional portfolio website showcasing my work as a Full Stack Engineer with 2+ years of experience building scalable web applications.
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React.js, TypeScript, Tailwind CSS
+- **Styling:** CSS animations, custom keyframes
+- **Deployment:** GitHub Pages
+- **Icons:** Lucide React
+- **Build Tool:** Create React App
+
+## ✨ Features
+
+- 🎨 **Elegant Animations** - Smooth CSS keyframe animations
+- 📱 **Responsive Design** - Mobile-first approach
+- 🎯 **Interactive Navigation** - Smooth scrolling to sections
+- 📄 **CV Download** - Direct PDF download
+- 🔗 **Social Links** - GitHub, LinkedIn, Medium, NPM
+- 🌙 **Dark Theme** - Professional dark color scheme
+
+## 📁 Project Structure
+
+```
+razan-portfolio-react/
+├── src/
+│   ├── components/          # React components
+│   ├── App.tsx            # Main app component
+│   └── index.css           # Styles and animations
+├── public/                  # Static assets
+└── build/                   # Production build
+```
+
+## 🚀 Deployment
+
+This portfolio is automatically deployed to GitHub Pages using GitHub Actions.
+
+### Manual Deployment
+```bash
+npm run build
+npm run deploy
+```
+
+### Automatic Deployment
+- Push to `main` branch
+- GitHub Actions automatically builds and deploys
+
+## 📧 Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+
+# Build for production
+npm run build
+
+# Run tests
+npm test
+```
+
+## 👨‍💻 About Me
+
+Full Stack Engineer with expertise in:
+- React.js & Next.js development
+- TypeScript & JavaScript
+- Node.js & Express
+- Performance optimization
+- SEO & Core Web Vitals
+- Authentication systems
+- REST API development
+
+## 📞 Contact
+
+- **Email:** razanalqaddoumi@gmail.com
+- **GitHub:** https://github.com/razan-aboushi
+- **LinkedIn:** https://www.linkedin.com/in/razan-aboushi/
+- **Portfolio:** https://razan-aboushi.github.io/razan-aboushi-portfolio/
+
+---
+
+**Built with ❤️ using React.js and TypeScript**
 
 ## Available Scripts
 
