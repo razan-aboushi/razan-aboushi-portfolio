@@ -1,5 +1,3 @@
-"use client";
-
 import { Mail, ExternalLink, Download, Link } from "lucide-react";
 
 const heroData = {

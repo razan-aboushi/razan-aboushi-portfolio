@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { Code, Package, Globe } from "lucide-react";
 
 const skillsData = {
   frontend: [
