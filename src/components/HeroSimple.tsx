@@ -41,8 +41,9 @@ export default function HeroSimple() {
           </a>
           
           <a
-            href="/Razan_Aboushi_Full_Stack_Engineer_CV.pdf"
-            download
+            href="https://github.com/razan-aboushi/razan-aboushi-portfolio/raw/main/src/app/Razan_Aboushi_Full_Stack_Engineer_CV.pdf"
+            download="Razan_Aboushi_Full_Stack_Engineer_CV.pdf"
+            target="_blank"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gray-800 text-white rounded-full font-semibold border border-gray-700 hover:bg-gray-700 transition-colors"
           >
             <Download size={18} />
