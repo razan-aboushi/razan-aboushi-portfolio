@@ -6,7 +6,7 @@
 
 ## 📋 About
 
-Professional portfolio website showcasing my work as a Full Stack Engineer with 2+ years of experience building scalable web applications.
+This portfolio was converted from Next.js to pure React.js to resolve deployment issues and ensure compatibility with GitHub Pages. It showcases my work as a Full Stack Engineer with 2+ years of experience building scalable web applications.
 
 ## 🛠️ Tech Stack
 
@@ -37,9 +37,20 @@ razan-portfolio-react/
 └── build/                   # Production build
 ```
 
-## 🚀 Deployment
+## 🚀 Deployment & Project Creation
 
-This portfolio is automatically deployed to GitHub Pages using GitHub Actions.
+This portfolio was converted from Next.js to pure React.js to resolve deployment issues and ensure compatibility with GitHub Pages. 
+
+### Conversion Process:
+1. ✅ **Created new React app** with Create React App and TypeScript
+2. ✅ **Migrated all components** from Next.js to standard React
+3. ✅ **Removed Framer Motion** and replaced with CSS animations
+4. ✅ **Fixed CV download path** for React deployment
+5. ✅ **Enhanced styling** with elegant animations and effects
+
+### Automatic Deployment
+- Push to `main` branch
+- GitHub Actions automatically builds and deploys to GitHub Pages
 
 ### Manual Deployment
 ```bash
@@ -49,7 +60,7 @@ npm run deploy
 
 ### Automatic Deployment
 - Push to `main` branch
-- GitHub Actions automatically builds and deploys
+- GitHub Actions automatically builds and deploys to GitHub Pages
 
 ## 📧 Development
 
