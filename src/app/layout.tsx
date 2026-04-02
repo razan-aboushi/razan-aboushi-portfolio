@@ -14,14 +14,14 @@ export const metadata: Metadata = {
   authors: [{ name: "Razan Aboushi" }],
   creator: "Razan Aboushi",
   robots: "index, follow",
-  metadataBase: new URL("https://razan-portfolio.vercel.app"),
+  metadataBase: new URL("https://razan-aboushi.github.io/My-portfolio"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Razan Aboushi - Full Stack Engineer",
     description: "Full Stack Engineer with 2+ years of experience building scalable web applications used by thousands of users using React, Next.js, TypeScript, and Node.js. Proven track record of improving page speed by over 30%, optimizing performance, implementing authentication systems, and enhancing SEO and Core Web Vitals.",
-    url: "https://razan-portfolio.vercel.app",
+    url: "https://razan-aboushi.github.io/My-portfolio",
     siteName: "Razan Aboushi Portfolio",
     type: "website",
     locale: "en_US",

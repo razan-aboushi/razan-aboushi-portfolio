@@ -12,8 +12,12 @@ const nextConfig = {
   },
   images: {
     domains: ['localhost'],
-    formats: ['image/webp', 'image/avif'],
+    unoptimized: true,
   },
+  output: 'export',
+  trailingSlash: true,
+  basePath: '/My-portfolio',
+  assetPrefix: '/My-portfolio',
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
