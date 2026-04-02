@@ -6,24 +6,50 @@
 
 ## 📋 About
 
-Professional portfolio website showcasing my work as a Full Stack Engineer with 2+ years of experience building scalable web applications using React.js, TypeScript, and modern web technologies.
+Professional portfolio website built with pure React.js, showcasing my work as a Full Stack Engineer with 2+ years of experience building scalable web applications using modern web technologies.
+
+### 🎯 Project Overview
+
+This portfolio represents a complete **Next.js to React.js conversion**, demonstrating:
+- **Framework Migration** - Successfully converted from Next.js to pure React.js
+- **Animation System** - Replaced Framer Motion with custom CSS animations
+- **Modern Development** - TypeScript, Tailwind CSS, and component-based architecture
+- **Performance Focus** - Optimized builds and Core Web Vitals improvements
+- **Professional Deployment** - GitHub Pages with automated CI/CD pipeline
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React.js, TypeScript, Tailwind CSS
-- **Styling:** CSS animations, custom keyframes
-- **Deployment:** GitHub Pages
-- **Icons:** Lucide React
-- **Build Tool:** Create React App
+### Frontend
+- **React.js 19.2.4** - Pure React with hooks and components
+- **TypeScript 4.9.5** - Type-safe JavaScript development
+- **Tailwind CSS 3.4.0** - Utility-first CSS framework
+- **Lucide React** - Professional icon library
+- **CSS Animations** - Custom keyframes (fadeIn, slideIn, scaleIn, glow, float)
+
+### Backend & Tools
+- **Node.js** - JavaScript runtime environment
+- **Express.js** - Web application framework
+- **REST APIs** - API design and implementation
+- **Authentication** - JWT, OAuth, SSO integration
+
+### Development & Deployment
+- **Create React App** - React development environment
+- **GitHub Actions** - Automated CI/CD pipeline
+- **GitHub Pages** - Static site hosting
+- **ESLint & Prettier** - Code quality tools
 
 ## ✨ Features
 
-- 🎨 **Elegant Animations** - Smooth CSS keyframe animations
-- 📱 **Responsive Design** - Mobile-first approach
-- 🎯 **Interactive Navigation** - Smooth scrolling to sections
-- 📄 **CV Download** - Direct PDF download
-- 🔗 **Social Links** - GitHub, LinkedIn, Medium, NPM
-- 🌙 **Dark Theme** - Professional dark color scheme
+- 🎨 **Elegant Animations** - Smooth CSS keyframe animations (fadeIn, slideIn, scaleIn, glow, float, typewriter)
+- 📱 **Responsive Design** - Mobile-first approach with Tailwind CSS
+- 🎯 **Interactive Navigation** - Smooth scrolling to sections with active states
+- 📄 **CV Download** - Direct PDF download with local file path
+- 🔗 **Social Links** - GitHub, LinkedIn, Medium, NPM with hover effects
+- 🌙 **Professional Dark Theme** - Consistent color scheme with CSS variables
+- ✨ **Enhanced Hover Effects** - Transforms, shadows, and scale animations
+- 📜 **Custom Scrollbar** - Styled scrollbar matching theme
+- 🔧 **Component-Based Architecture** - Reusable React components
+- ⚡ **Performance Optimized** - Lazy loading and optimized builds
 
 ## 📁 Project Structure
 
@@ -72,13 +98,14 @@ npm test
 ## 👨‍💻 About Me
 
 Full Stack Engineer with expertise in:
-- React.js & Next.js development
-- TypeScript & JavaScript
-- Node.js & Express
-- Performance optimization
-- SEO & Core Web Vitals
-- Authentication systems
-- REST API development
+- React.js development (pure React.js, no Next.js)
+- TypeScript & JavaScript (ES6+)
+- Tailwind CSS & custom animations
+- Node.js & Express.js
+- Performance optimization & Core Web Vitals
+- SEO & accessibility implementation
+- Authentication systems & SSO integration
+- REST API development & database design
 
 ## 📞 Contact
 
