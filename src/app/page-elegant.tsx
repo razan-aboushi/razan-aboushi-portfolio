@@ -1,21 +1,16 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import NavigationElegant from "@/components/NavigationElegant";
-import HeroSimple from "@/components/HeroSimple";
+import HeroElegant from "@/components/HeroElegant";
 import SkillsElegant from "@/components/SkillsElegant";
 import ExperienceElegant from "@/components/ExperienceElegant";
 import ProjectsElegant from "@/components/ProjectsElegant";
 import EducationElegant from "@/components/EducationElegant";
-import AnimatedBackground from "@/components/AnimatedBackground";
 
-export default function Home() {
+export default function HomeElegant() {
   return (
-    <div className="min-h-screen bg-gray-900 text-white relative overflow-hidden">
-      <AnimatedBackground />
+    <div className="min-h-screen bg-gray-900 text-white">
       <NavigationElegant />
-      <main className="relative z-10">
-        <HeroSimple />
+      <main>
+        <HeroElegant />
         <SkillsElegant />
         <ExperienceElegant />
         <ProjectsElegant />
