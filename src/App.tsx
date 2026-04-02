@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import NavigationElegant from './components/NavigationElegant';
+import HeroSimple from './components/HeroSimple';
+import SkillsElegant from './components/SkillsElegant';
+import ExperienceElegant from './components/ExperienceElegant';
+import ProjectsElegant from './components/ProjectsElegant';
+import EducationElegant from './components/EducationElegant';
+import AnimatedBackground from './components/AnimatedBackground';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-gray-900 text-white relative overflow-hidden">
+      <AnimatedBackground />
+      <NavigationElegant />
+      <main className="relative z-10">
+        <HeroSimple />
+        <SkillsElegant />
+        <ExperienceElegant />
+        <ProjectsElegant />
+        <EducationElegant />
+      </main>
     </div>
   );
 }
