@@ -1,6 +1,5 @@
 import { Calendar, MapPin, ChevronRight, Briefcase } from "lucide-react";
 
-// Fixed the data based on your actual CV to remove the duplicated/incorrect library entries
 const experienceData = [
   {
     company: "OpenSooq",
