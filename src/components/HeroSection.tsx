@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ExternalLink, Download, Link, Code, Server, Zap, Sparkles } from "lucide-react";
+import { Download, Code, Server, Zap, Sparkles } from "lucide-react";
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
