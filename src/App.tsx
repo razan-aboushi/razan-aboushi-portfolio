@@ -6,6 +6,7 @@ import ExperienceElegant from './components/ExperienceElegant';
 import ProjectsElegant from './components/ProjectsElegant';
 import EducationElegant from './components/EducationElegant';
 import AnimatedBackground from './components/AnimatedBackground';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <ProjectsElegant />
         <EducationElegant />
       </main>
+      <Footer />
     </div>
   );
 }
