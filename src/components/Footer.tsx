@@ -1,6 +1,6 @@
 'use client';
 
-import { Code, Heart, GitBranch, Mail } from 'lucide-react';
+import { Code, GitBranch, Mail } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
