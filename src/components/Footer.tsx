@@ -62,24 +62,22 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col items-center md:items-end space-y-3">
-            <div className="flex items-center gap-2 text-gray-400 text-sm">
-              <span>Built with</span>
-              <Heart className="w-4 h-4 text-red-500" />
-              <span>using React & TypeScript</span>
+            <div className="text-gray-400 text-sm">
+              <span>Available for opportunities</span>
             </div>
-            <p className="text-xs text-gray-500">Crafted with passion for clean code</p>
+            <p className="text-xs text-gray-500">Jordan</p>
           </div>
         </div>
 
         <div className="mt-8 pt-6 border-t border-gray-800">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-xs text-gray-500 text-center">
-              Specializing in React, Next.js, TypeScript, and Performance Optimization
+              Specializing in React, Next.js and JS frameworks, TypeScript, and Performance Optimization
             </p>
             <div className="flex items-center gap-2 text-xs text-gray-500">
               <span>Jordan</span>
               <span>•</span>
-              <span>Available for opportunities</span>
+              <span>Full Stack Developer</span>
             </div>
           </div>
         </div>
