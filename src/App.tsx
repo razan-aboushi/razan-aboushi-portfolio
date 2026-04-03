@@ -1,6 +1,6 @@
 import React from 'react';
 import NavigationElegant from './components/NavigationElegant';
-import HeroSimple from './components/HeroSimple';
+import HeroSimple from './components/HeroSection';
 import SkillsElegant from './components/SkillsElegant';
 import ExperienceElegant from './components/ExperienceElegant';
 import ProjectsElegant from './components/ProjectsElegant';

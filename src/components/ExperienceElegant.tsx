@@ -1,19 +1,20 @@
-import { Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin, ChevronRight, Briefcase } from "lucide-react";
 
-
+// Fixed the data based on your actual CV to remove the duplicated/incorrect library entries
 const experienceData = [
   {
     company: "OpenSooq",
     position: "Full Stack Engineer",
     duration: "Sep 2023 – Present",
     location: "Amman, Jordan",
+    isCurrent: true,
     achievements: [
       "Architected and optimized complex filtering functionality using Context API and Zustand, improving navigation and user experience",
       "Integrated Google Tag Manager (GTM) tracking and logging systems to capture user interactions and support reporting",
       "Spearheaded SEO and Core Web Vitals improvements utilizing Google Search Console and Lighthouse",
       "Implemented Single Sign-On (SSO) features, handling authentication and multiple login options for users",
       "Worked on Spotlights, Commercial Ads, and Listings Comparison features to improve visibility and engagement",
-      "Optimized JavaScript bundles with code splitting, boosting Core Web Vitals more than 20%",
+      "Optimized JavaScript bundles with code splitting, boosting Core Web Vitals more than 30%",
       "Reduced page load time by 2.5+ seconds through build enhancements",
       "Resolved SEO issues including broken links, redirects, and server errors, improving site indexing and crawl efficiency",
       "Removed unnecessary dependencies, reducing bundle size, build complexity, and potential security risks while fixing memory leaks",
@@ -26,6 +27,7 @@ const experienceData = [
     position: "Full Stack Web Development Intern",
     duration: "Feb 2023 – Aug 2023",
     location: "Zarqa, Jordan",
+    isCurrent: false,
     achievements: [
       "Completed a highly selective, intensive 7-month full-stack development bootcamp",
       "Developed responsive, data-driven web applications from scratch utilizing React, Node.js, and relational databases",
@@ -33,79 +35,102 @@ const experienceData = [
     ],
   },
   {
-    company: "Collaborative Supply Coordinator",
-    position: "Supply Chain Coordinator",
-    duration: "Nov 2020 – Feb 2023",
-    location: "Zarqa Private University Library, Zarqa, Jordan",
+    company: "Zarqa Private University Library",
+    position: "Supply Section Coordinator",
+    duration: "Nov 2022 – Feb 2023",
+    location: "Zarqa, Jordan",
+    isCurrent: false,
     achievements: [
       "Managed academic book supply processes, procurement, and inventory tracking across multiple university departments",
     ],
   },
-  {
-    company: "University Departments",
-    position: "University Departments",
-    duration: "2020 – Feb 2023",
-    location: "Zarqa, Jordan",
-    achievements: [
-      "Coordinated with various university departments for supply chain and inventory management",
-    ],
-  },
 ];
+
 export default function ExperienceElegant() {
   return (
-    <section id="experience" className="ns-section">
-      <div className="ns-container">
-        <div className="ns-section-header">
-          <h2 className="ns-section-title animate-fade-in">
-            Experience
+    <section id="experience" className="relative py-24 bg-[#0a0a0a]">
+      <div className="max-w-5xl mx-auto px-6">
+        
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Experience</span>
           </h2>
-          <p className="ns-section-description animate-fade-in-delay">
-            My professional journey and key achievements
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            My career journey building scalable applications and solving complex technical challenges.
           </p>
         </div>
         
+        {/* Timeline Container */}
         <div className="relative">
-          <div className="absolute left-8 top-0 h-full w-0.5 bg-gray-700"></div>
-          <div className="space-y-12 animate-fade-in-delay-2">
+          
+          {/* The Vertical Line */}
+          {/* We use a gradient line to make it look modern */}
+          <div className="absolute left-[15px] md:left-[39px] top-2 bottom-0 w-[2px] bg-gradient-to-b from-purple-500 via-blue-500/50 to-transparent" />
+
+          <div className="space-y-12">
             {experienceData.map((exp, index) => (
-              <div 
-                key={index}
-                className="relative flex items-start ml-20 animate-fade-in"
-                style={{ animationDelay: `${0.3 + index * 0.1}s` }}
-              >
-                <div className="absolute -left-12 top-2 w-4 h-4 bg-purple-500 rounded-full border-4 border-gray-900 z-10"></div>
-                <div className="w-full max-w-4xl">
-                  <div className="ns-card">
-                    <h3 className="text-2xl font-semibold text-white mb-2">
-                      {exp.position}
-                    </h3>
-                    <div className="flex items-center gap-2 text-purple-400 mb-1">
-                      <span className="font-medium">{exp.company}</span>
+              <div key={index} className="relative pl-10 md:pl-24">
+                
+                {/* Timeline Dot */}
+                {/* The glowing dot effect for current role, standard dot for past roles */}
+                <div 
+                  className={`absolute left-[7px] md:left-[31px] top-1.5 w-[18px] h-[18px] rounded-full border-4 border-[#0a0a0a] z-10 ${
+                    exp.isCurrent 
+                      ? "bg-purple-400 shadow-[0_0_15px_rgba(192,132,252,0.6)]" 
+                      : "bg-gray-600"
+                  }`}
+                />
+
+                {/* Experience Card */}
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 hover:border-purple-500/30 hover:bg-white/[0.07] transition-all duration-300">
+                  
+                  {/* Header part of the card */}
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
+                    <div>
+                      <h3 className="text-2xl font-bold text-white mb-1">
+                        {exp.position}
+                      </h3>
+                      <div className="flex items-center gap-2 text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 mb-3">
+                        <Briefcase size={18} className="text-purple-400" />
+                        {exp.company}
+                      </div>
                     </div>
-                    <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
-                      <div className="flex items-center gap-1">
-                        <Calendar size={14} />
+                    
+                    {/* Date and Location Badges */}
+                    <div className="flex flex-col gap-2 shrink-0">
+                      <div className="flex items-center gap-2 text-sm text-gray-400 bg-gray-900/50 px-3 py-1.5 rounded-full border border-gray-800 w-fit">
+                        <Calendar size={14} className="text-purple-400" />
                         <span>{exp.duration}</span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <MapPin size={14} />
+                      <div className="flex items-center gap-2 text-sm text-gray-400 bg-gray-900/50 px-3 py-1.5 rounded-full border border-gray-800 w-fit">
+                        <MapPin size={14} className="text-blue-400" />
                         <span>{exp.location}</span>
                       </div>
                     </div>
-                    <ul className="space-y-2 text-sm text-gray-300">
-                      {exp.achievements.map((achievement, achIndex) => (
-                        <li key={achIndex} className="flex items-start gap-2">
-                          <span className="text-purple-400 mt-1">•</span>
-                          <span>{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
+
+                  {/* Achievements List */}
+                  <ul className="space-y-3">
+                    {exp.achievements.map((achievement, achIndex) => (
+                      <li key={achIndex} className="flex items-start gap-3 group">
+                        <ChevronRight 
+                          size={16} 
+                          className="text-purple-500 mt-1 shrink-0 group-hover:text-cyan-400 transition-colors" 
+                        />
+                        <span className="text-gray-300 leading-relaxed text-[15px]">
+                          {achievement}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
                 </div>
               </div>
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import { Code, Package, Globe, ExternalLink } from "lucide-react";
+import { Code, Package, Globe, ExternalLink, GitBranch, Box, Server } from "lucide-react";
 
 const projectsData = [
   {
@@ -11,6 +11,7 @@ const projectsData = [
       github: "https://github.com/razan-aboushi/react-perfect-gallery",
     },
     icon: Package,
+    featured: true,
   },
   {
     title: "Mobile Date Picker",
@@ -22,6 +23,7 @@ const projectsData = [
       github: "https://github.com/razan-aboushi/my-react-mobile-datepicker",
     },
     icon: Package,
+    featured: true,
   },
   {
     title: "EduSpark Platform",
@@ -32,6 +34,7 @@ const projectsData = [
       github: "https://github.com/razan-aboushi/eduspark-platform",
     },
     icon: Globe,
+    featured: true,
   },
   {
     title: "TableXpress",
@@ -41,13 +44,14 @@ const projectsData = [
     links: {
       github: "https://github.com/razan-aboushi/tablexpress",
     },
-    icon: Code,
+    icon: Globe,
+    featured: true,
   },
   {
     title: "Task Manager with Zustand",
     type: "React Application",
     description: "Built a modern task management application using React with Zustand for state management, featuring add, edit, delete, and complete task functionalities.",
-    technologies: ["React", "Zustand", "JavaScript", "State Management", "Todo App"],
+    technologies: ["React", "Zustand", "JavaScript"],
     links: {
       github: "https://github.com/razan-aboushi/Add-Tasks-with-Zustand",
     },
@@ -57,7 +61,7 @@ const projectsData = [
     title: "Expense Tracker",
     type: "JavaScript Application",
     description: "Developed a comprehensive expense tracking application with budget management, expense categorization, and financial reporting features.",
-    technologies: ["JavaScript", "HTML5", "CSS3", "Local Storage", "Budget Management"],
+    technologies: ["JavaScript", "HTML5", "CSS3", "Local Storage"],
     links: {
       github: "https://github.com/razan-aboushi/Expense-Tracker",
     },
@@ -67,7 +71,7 @@ const projectsData = [
     title: "Memory Game",
     type: "JavaScript Game",
     description: "Created an interactive memory card game with flip animations, score tracking, and difficulty levels using pure JavaScript.",
-    technologies: ["JavaScript", "HTML5", "CSS3", "Game Logic", "Animations"],
+    technologies: ["JavaScript", "HTML5", "CSS3", "Animations"],
     links: {
       github: "https://github.com/razan-aboushi/Memory-Game",
     },
@@ -77,7 +81,7 @@ const projectsData = [
     title: "Snake Game",
     type: "JavaScript Game",
     description: "Implemented the classic Snake game with smooth controls, score tracking, and increasing difficulty levels.",
-    technologies: ["JavaScript", "HTML5", "CSS3", "Canvas", "Game Development"],
+    technologies: ["JavaScript", "HTML5", "Canvas"],
     links: {
       github: "https://github.com/razan-aboushi/Snake-game",
     },
@@ -87,7 +91,7 @@ const projectsData = [
     title: "2D Breakout Game",
     type: "JavaScript Game",
     description: "Built a 2D breakout game with paddle controls, brick physics, power-ups, and progressive difficulty levels.",
-    technologies: ["JavaScript", "HTML5", "Canvas", "Game Physics", "Collision Detection"],
+    technologies: ["JavaScript", "Canvas", "Game Physics"],
     links: {
       github: "https://github.com/razan-aboushi/2D-breakout-game",
     },
@@ -97,7 +101,7 @@ const projectsData = [
     title: "Quiz Application",
     type: "JavaScript Application",
     description: "Created an interactive quiz application with multiple categories, timer functionality, and score tracking system.",
-    technologies: ["JavaScript", "HTML5", "CSS3", "Quiz Logic", "Timer"],
+    technologies: ["JavaScript", "HTML5", "CSS3"],
     links: {
       github: "https://github.com/razan-aboushi/Quiz-by-JavaScript",
     },
@@ -107,123 +111,146 @@ const projectsData = [
     title: "Chat Rooms",
     type: "Node.js Application",
     description: "Developed real-time chat rooms with Socket.io, user authentication, and message history functionality.",
-    technologies: ["Node.js", "Socket.io", "Express", "Real-time", "Chat"],
+    technologies: ["Node.js", "Socket.io", "Express"],
     links: {
       github: "https://github.com/razan-aboushi/chat-rooms",
     },
-    icon: Code,
+    icon: Server,
   },
   {
     title: "Simple NodeJS",
     type: "Backend Application",
     description: "Created a basic Node.js server with RESTful API endpoints, middleware implementation, and error handling.",
-    technologies: ["Node.js", "Express", "REST API", "Middleware", "Backend"],
+    technologies: ["Node.js", "Express", "REST API"],
     links: {
       github: "https://github.com/razan-aboushi/Simple_NodeJS",
     },
-    icon: Code,
+    icon: Server,
   },
 ];
+
+// Split the data into featured and standard projects
+const featuredProjects = projectsData.filter(p => p.featured);
+const standardProjects = projectsData.filter(p => !p.featured);
+
 export default function ProjectsElegant() {
   return (
-    <section id="projects" className="ns-section">
-      <div className="ns-container">
-        <div className="ns-section-header">
-          <h2 className="ns-section-title animate-fade-in">
-            Projects & NPM Packages
+    <section id="projects" className="relative py-24 bg-[#0a0a0a]">
+      <div className="max-w-6xl mx-auto px-6">
+        
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Work</span>
           </h2>
-          <p className="ns-section-description animate-fade-in-delay">
-            A showcase of my development work and open-source contributions
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            A selection of my NPM packages, full-stack applications, and open-source contributions.
           </p>
         </div>
         
-        <div className="ns-grid animate-fade-in-delay-2">
-          {projectsData.map((project, index) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {featuredProjects.map((project, index) => {
             const Icon = project.icon;
             return (
               <div 
                 key={index}
-                className="group animate-fade-in"
-                style={{ animationDelay: `${0.3 + index * 0.05}s` }}
+                className="group relative flex flex-col justify-between p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 hover:bg-white/[0.07] transition-all duration-300 overflow-hidden"
               >
-                <div className="ns-card h-full">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="p-3 bg-purple-500/10 rounded-lg text-purple-400">
-                      <Icon size={24} />
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="p-3 bg-white/5 rounded-xl text-purple-400 border border-white/10">
+                      <Icon size={24} strokeWidth={1.5} />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-white group-hover:text-purple-400 transition-colors">
-                        {project.title}
-                      </h3>
-                      <span className="text-sm text-gray-400">{project.type}</span>
-                    </div>
+                    <span className="text-xs font-medium px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full border border-purple-500/20">
+                      {project.type}
+                    </span>
                   </div>
                   
-                  <p className="text-gray-300 mb-4 leading-relaxed">
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  
+                  <p className="text-gray-400 mb-6 leading-relaxed">
                     {project.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-8">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 bg-gray-800 text-gray-300 rounded text-xs border border-gray-700"
+                        className="px-2.5 py-1 bg-[#0a0a0a] text-gray-300 rounded-md text-xs border border-gray-800"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-                  
-                  <div className="flex gap-4">
-                    {project.links.npm && (
-                      <a
-                        href={project.links.npm}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1 text-sm text-purple-400 hover:text-purple-300 transition-colors"
-                      >
-                        <Package size={14} />
-                        NPM
-                      </a>
-                    )}
-                    {project.links.github && (
-                      <a
-                        href={project.links.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1 text-sm text-purple-400 hover:text-purple-300 transition-colors"
-                      >
-                        <Code size={14} />
-                        Source
-                      </a>
-                    )}
-                  </div>
+                </div>
+                
+                <div className="relative z-10 flex gap-4 mt-auto">
+                  {project.links.npm && (
+                    <a
+                      href={project.links.npm}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm font-medium text-white px-4 py-2 rounded-lg bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 transition-colors"
+                    >
+                      <Box size={16} />
+                      NPM Registry
+                    </a>
+                  )}
+                  {project.links.github && (
+                    <a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm font-medium text-white px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
+                    >
+                      <GitBranch size={16} />
+                      Source Code
+                    </a>
+                  )}
                 </div>
               </div>
             );
           })}
         </div>
-        
-        <div className="text-center mt-16 animate-fade-in">
-          <div className="inline-flex items-center gap-4">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
-            <div className="flex flex-col items-center gap-4">
-              <a
-                href="https://github.com/razan-aboushi"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:opacity-90 transition-all duration-300 hover:scale-105"
-              >
-                <ExternalLink size={20} />
-                View All Projects on GitHub
-              </a>
-              <p className="text-gray-500 text-xs">
-                Explore 39+ repositories including full-stack apps, games, and tools
-              </p>
-            </div>
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
-          </div>
+
+        <h3 className="text-2xl font-bold text-white mb-6 text-center">Other Projects & Games</h3>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+            {standardProjects.map((project, index) => {
+              return (
+                <div key={index} className="p-5 rounded-xl bg-white/5 border border-white/5 hover:border-gray-600 transition-colors flex flex-col h-full">
+                  <h4 className="text-lg font-semibold text-white mb-2">{project.title}</h4>
+                  <p className="text-sm text-gray-500 mb-4 flex-grow line-clamp-3">{project.description}</p>
+                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
+                    <span className="text-xs text-gray-600">{project.technologies[0]}</span>
+                    {project.links.github && (
+                      <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                        <GitBranch size={18} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              )
+            })}
         </div>
+        
+        <div className="flex justify-center">
+          <a
+            href="https://github.com/razan-aboushi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 text-white rounded-full font-semibold border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all duration-300"
+          >
+            <GitBranch size={20} className="group-hover:text-purple-400 transition-colors" />
+            <span>View All 39+ Projects on GitHub</span>
+            <ExternalLink size={16} className="text-gray-500 group-hover:text-white transition-colors" />
+          </a>
+        </div>
+
       </div>
     </section>
   );
