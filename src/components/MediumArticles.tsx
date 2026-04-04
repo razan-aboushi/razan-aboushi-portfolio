@@ -16,7 +16,7 @@ const staticArticles: Article[] = [
     title: "Why Your Database Queries Are Suddenly Slow (And How to Fix It)",
     link: "https://medium.com/@razanalqaddoumi/why-your-database-queries-are-suddenly-slow-and-how-to-fix-it",
     description: "Let me tell you a story that almost every developer goes through. Your application was working perfectly, database queries were fast, and then suddenly... everything slowed down. This article explores common causes and practical solutions for database performance issues.",
-    thumbnail: "https://miro.medium.com/v2/resize:fit:1400/1*cc1b1Q5a3xJk4k7k5k6k5g.png",
+    thumbnail: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=800&h=400&fit=crop&crop=entropy&auto=format",
     readTime: "8 min read",
     pubDate: "Mar 2024"
   },
@@ -24,7 +24,7 @@ const staticArticles: Article[] = [
     title: "Prompt Engineering: Stop Talking to AI and Start Directing It",
     link: "https://medium.com/@razanalqaddoumi/prompt-engineering-stop-talking-to-ai-and-start-directing-it",
     description: "By now, most of us have tried using AI. And honestly, many times the output feels generic, robotic, or just wrong. You rephrase the same prompt multiple times but still don't get the result you want. The problem isn't the AI—it's how you're talking to it.",
-    thumbnail: "https://miro.medium.com/v2/resize:fit:1400/1*cc1b1Q5a3xJk4k7k5k6k5g.png",
+    thumbnail: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop&crop=entropy&auto=format",
     readTime: "6 min read",
     pubDate: "Mar 2024"
   },
@@ -32,7 +32,7 @@ const staticArticles: Article[] = [
     title: "Top 4 Authentication Mechanisms",
     link: "https://medium.com/@razanalqaddoumi/top-4-authentication-mechanisms",
     description: "How the Internet Actually Knows It's You: We use apps, websites and services every day, but most of us don't really think about how we're authenticated. This article breaks down the most common authentication mechanisms and when to use each one.",
-    thumbnail: "https://miro.medium.com/v2/resize:fit:1400/1*cc1b1Q5a3xJk4k7k5k6k5g.png",
+    thumbnail: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=400&fit=crop&crop=entropy&auto=format",
     readTime: "7 min read",
     pubDate: "Feb 2024"
   },
@@ -40,7 +40,7 @@ const staticArticles: Article[] = [
     title: "Shallow Copy vs Deep Copy in JavaScript",
     link: "https://medium.com/@razanalqaddoumi/shallow-copy-vs-deep-copy-in-javascript",
     description: "When I first started coding in JS, I ran into a strange problem: I'd copy an object, change something in the copy… and suddenly the original object changed too! If you've been there, this article will help you understand the difference between shallow and deep copying.",
-    thumbnail: "https://miro.medium.com/v2/resize:fit:1400/1*cc1b1Q5a3xJk4k7k5k6k5g.png",
+    thumbnail: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&h=400&fit=crop&crop=entropy&auto=format",
     readTime: "5 min read",
     pubDate: "Feb 2024"
   },
@@ -48,7 +48,7 @@ const staticArticles: Article[] = [
     title: "Level Up Your React Skills with These Practical Tips 👩‍💻",
     link: "https://medium.com/@razanalqaddoumi/level-up-your-react-skills-with-these-practical-tips",
     description: "Are you looking to write cleaner, faster and more maintainable React code? I've discovered that small, practical adjustments can make a huge difference in your React development. Here are my top tips for leveling up your React skills.",
-    thumbnail: "https://miro.medium.com/v2/resize:fit:1400/1*cc1b1Q5a3xJk4k7k5k6k5g.png",
+    thumbnail: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop&crop=entropy&auto=format",
     readTime: "9 min read",
     pubDate: "Jan 2024"
   },
@@ -56,7 +56,7 @@ const staticArticles: Article[] = [
     title: "The Most Important Person You'll Ever Code For Is You",
     link: "https://medium.com/@razanalqaddoumi/the-most-important-person-youll-ever-code-for-is-you",
     description: "Have you ever opened an old project and felt lost, wondering, 'Who wrote this code?' The answer is… you. This article is about writing code that your future self will thank you for—maintainable, readable, and well-documented.",
-    thumbnail: "https://miro.medium.com/v2/resize:fit:1400/1*cc1b1Q5a3xJk4k7k5k6k5g.png",
+    thumbnail: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=400&fit=crop&crop=entropy&auto=format",
     readTime: "6 min read",
     pubDate: "Jan 2024"
   }
