@@ -5,6 +5,7 @@ import SkillsElegant from './components/SkillsElegant';
 import ExperienceElegant from './components/ExperienceElegant';
 import ProjectsElegant from './components/ProjectsElegant';
 import EducationElegant from './components/EducationElegant';
+import MediumArticles from './components/MediumArticles';
 import AnimatedBackground from './components/AnimatedBackground';
 import Footer from './components/Footer';
 
@@ -19,6 +20,7 @@ function App() {
         <ExperienceElegant />
         <ProjectsElegant />
         <EducationElegant />
+        <MediumArticles />
       </main>
       <Footer />
     </div>

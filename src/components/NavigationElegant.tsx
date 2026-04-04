@@ -7,6 +7,7 @@ const navItems = [
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Education", href: "#education" },
+  { name: "Articles", href: "#articles" },
 ];
 
 export default function NavigationModern() {
@@ -21,7 +22,7 @@ useEffect(() => {
       const isAtBottom = window.innerHeight + Math.round(window.scrollY) >= document.body.offsetHeight - 50;
       
       if (isAtBottom) {
-        setActiveSection("education");
+        setActiveSection("articles");
       }
 
       const sections = navItems.map(item => item.name.toLowerCase());
