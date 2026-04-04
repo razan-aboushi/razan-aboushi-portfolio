@@ -5,6 +5,7 @@ import ExperienceElegant from "../components/ExperienceElegant";
 import ProjectsElegant from "../components/ProjectsElegant";
 import EducationElegant from "../components/EducationElegant";
 import AnimatedBackground from "../components/AnimatedBackground";
+import NpmPackages from "../components/npmPackages";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <HeroSimple />
         <SkillsElegant />
         <ExperienceElegant />
+        <NpmPackages />
         <ProjectsElegant />
         <EducationElegant />
       </main>

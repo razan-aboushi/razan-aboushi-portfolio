@@ -336,3 +336,14 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--secondary);
 }
+
+/* Add this to hide scrollbars but keep elements scrollable */
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

@@ -48,7 +48,7 @@ const staticArticles: Article[] = [
 
 export default function MediumArticles() {
   return (
-    <section id="articles" className="relative py-24 bg-[#0a0a0a] scroll-mt-24">
+    <section id="articles" className="relative py-20 bg-[#0a0a0a] scroll-mt-20">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-purple-900/10 blur-[120px] rounded-full mix-blend-screen" />
         <div className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] bg-pink-900/10 blur-[120px] rounded-full mix-blend-screen" />
@@ -57,7 +57,7 @@ export default function MediumArticles() {
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Latest <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Articles</span>
+              Medium <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Articles</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Thoughts, insights, and technical writings on software engineering.
@@ -80,10 +80,6 @@ export default function MediumArticles() {
               </div>
 
               <div className="p-6 flex flex-col flex-grow bg-gradient-to-b from-transparent to-[#0a0a0a]/50">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-xs font-medium text-gray-400">•</span>
-                </div>
-
                 <h3 className="text-white font-bold text-xl mb-3 line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
                   {article.title}
                 </h3>

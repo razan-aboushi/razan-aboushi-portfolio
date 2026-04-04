@@ -47,7 +47,7 @@ const experienceData = [
 
 export default function ExperienceElegant() {
   return (
-    <section id="experience" className="relative py-24 bg-[#0a0a0a]">
+    <section id="experience" className="relative py-20 bg-[#0a0a0a]">
       <div className="max-w-5xl mx-auto px-6">
         
         {/* Section Header */}

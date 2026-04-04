@@ -23,7 +23,7 @@ const educationData = [
 
 export default function EducationElegant() {
   return (
-    <section id="education" className="relative pt-[12rem] pb-[12rem] bg-[#0a0a0a]">
+    <section id="education" className="relative pt-[8rem] pb-[9rem] bg-[#0a0a0a]">
       <div className="max-w-6xl mx-auto px-6">
         
         <div className="text-center mb-16">

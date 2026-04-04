@@ -135,7 +135,7 @@ const standardProjects = projectsData.filter(p => !p.featured);
 
 export default function ProjectsElegant() {
   return (
-    <section id="projects" className="relative py-24 bg-[#0a0a0a]">
+    <section id="projects" className="relative py-20 bg-[#0a0a0a]">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header */}

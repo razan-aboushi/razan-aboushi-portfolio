@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -5,6 +7,7 @@ const navItems = [
   { name: "Home", href: "#home" },
   { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
+  { name: "NPM Packages", href: "#packages" },
   { name: "Projects", href: "#projects" },
   { name: "Education", href: "#education" },
   { name: "Articles", href: "#articles" },
@@ -15,7 +18,7 @@ export default function NavigationModern() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
@@ -23,11 +26,12 @@ useEffect(() => {
       
       if (isAtBottom) {
         setActiveSection("articles");
+        return;
       }
 
-      const sections = navItems.map(item => item.name.toLowerCase());
-      const current = sections.find(section => {
-        const element = document.getElementById(section);
+      const currentItem = navItems.find(item => {
+        const sectionId = item.href.replace('#', '');
+        const element = document.getElementById(sectionId);
         if (element) {
           const rect = element.getBoundingClientRect();
           return rect.top <= window.innerHeight / 2 && rect.bottom >= 100;
@@ -35,8 +39,8 @@ useEffect(() => {
         return false;
       });
 
-      if (current) {
-        setActiveSection(current);
+      if (currentItem) {
+        setActiveSection(currentItem.href.replace('#', ''));
       }
     };
 
@@ -66,7 +70,9 @@ useEffect(() => {
 
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => {
-              const isActive = activeSection === item.name.toLowerCase();
+              const sectionId = item.href.replace('#', '');
+              const isActive = activeSection === sectionId;
+              
               return (
                 <a
                   key={item.name}
@@ -108,12 +114,14 @@ useEffect(() => {
 
       <div 
         className={`md:hidden absolute top-full left-0 w-full bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/10 transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-[400px] py-6 opacity-100" : "max-h-0 py-0 opacity-0"
+          isOpen ? "max-h-[500px] py-6 opacity-100" : "max-h-0 py-0 opacity-0"
         }`}
       >
         <div className="flex flex-col items-center space-y-2 px-6">
           {navItems.map((item) => {
-             const isActive = activeSection === item.name.toLowerCase();
+             const sectionId = item.href.replace('#', '');
+             const isActive = activeSection === sectionId;
+             
              return (
               <a
                 key={item.name}
