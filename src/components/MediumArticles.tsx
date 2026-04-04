@@ -1,9 +1,8 @@
-import { ExternalLink, Calendar, BookOpen } from 'lucide-react';
+import { ExternalLink, BookOpen } from 'lucide-react';
 
 interface Article {
   title: string;
   link: string;
-  pubDate: string;
   description: string;
   thumbnail: string;
 }
@@ -13,43 +12,37 @@ const staticArticles: Article[] = [
     title: "Why Your Database Queries Are Suddenly Slow (And How to Fix It)",
     link: "https://medium.com/@razanalqaddoumi/why-your-database-queries-are-suddenly-slow-and-how-to-fix-it-e5f429df6a4d",
     description: "Let me tell you a story that almost every developer goes through. Your application was working perfectly, database queries were fast, and then suddenly... everything slowed down. This article explores common causes and practical solutions.",
-    thumbnail: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop",
-    pubDate: "Mar 2024"
+    thumbnail: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop"
   },
   {
     title: "Prompt Engineering: Stop Talking to AI and Start Directing It",
     link: "https://medium.com/@razanalqaddoumi/prompt-engineering-stop-talking-to-ai-and-start-directing-it-aba0cde39538",
     description: "By now, most of us have tried using AI. And honestly, many times the output feels generic, robotic, or just wrong. You rephrase the same prompt multiple times but still don't get the result you want. The problem isn't the AI—it's how you're talking to it.",
-    thumbnail: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop",
-    pubDate: "Mar 2024"
+    thumbnail: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop"
   },
   {
     title: "Top 4 Authentication Mechanisms",
     link: "https://medium.com/@razanalqaddoumi/top-4-authentication-mechanisms-30c5779f7fc6",
     description: "How to Internet Actually Knows It's You: We use apps, websites and services every day, but most of us don't really think about how we're authenticated. This article breaks down the most common authentication mechanisms and when to use each one.",
-    thumbnail: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=400&fit=crop&crop=entropy&auto=format",
-    pubDate: "Feb 2024"
+    thumbnail: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=400&fit=crop&crop=entropy&auto=format"
   },
   {
     title: "Shallow Copy vs Deep Copy in JavaScript",
     link: "https://medium.com/@razanalqaddoumi/shallow-copy-vs-deep-copy-in-javascript-d91e2619aef7",
     description: "When I first started coding in JS, I ran into a strange problem: I'd copy an object, change something in the copy… and suddenly the original object changed too! If you've been there, this article will help you understand the difference.",
-    thumbnail: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&h=400&fit=crop&crop=entropy&auto=format",
-    pubDate: "Feb 2024"
+    thumbnail: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&h=400&fit=crop&crop=entropy&auto=format"
   },
   {
     title: "Level Up Your React Skills with These Practical Tips",
     link: "https://medium.com/@razanalqaddoumi/level-up-your-react-skills-with-these-practical-tips-a16b11bceaaf",
     description: "Are you looking to write cleaner, faster and more maintainable React code? I've discovered that small, practical adjustments can make a huge difference in your React development. Here are my top tips for leveling up.",
-    thumbnail: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop&crop=entropy&auto=format",
-    pubDate: "Jan 2024"
+    thumbnail: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop&crop=entropy&auto=format"
   },
   {
     title: "The Most Important Person You'll Ever Code For Is You",
     link: "https://medium.com/@razanalqaddoumi/the-most-important-person-youll-ever-code-for-is-you-85b767801aa6",
     description: "Have you ever opened an old project and felt lost, wondering, 'Who wrote this code?' The answer is… you. This article is about writing code that your future self will thank you for—maintainable, readable, and well-documented.",
-    thumbnail: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=400&fit=crop&crop=entropy&auto=format",
-    pubDate: "Jan 2024"
+    thumbnail: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=400&fit=crop&crop=entropy&auto=format"
   }
 ];
 
@@ -87,11 +80,8 @@ export default function MediumArticles() {
               </div>
 
               <div className="p-6 flex flex-col flex-grow bg-gradient-to-b from-transparent to-[#0a0a0a]/50">
-                                <div className="flex items-center gap-4 text-xs font-medium text-gray-400 mb-4">
-                  <div className="flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-purple-400" />
-                    <span>{article.pubDate}</span>
-                  </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xs font-medium text-gray-400">•</span>
                 </div>
 
                 <h3 className="text-white font-bold text-xl mb-3 line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
