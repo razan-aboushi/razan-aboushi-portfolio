@@ -75,7 +75,7 @@ export default function Hero() {
         <div className="flex justify-center gap-4 flex-wrap mb-10">
           <a
             href="/Razan_Aboushi_Full_Stack_Engineer_CV.pdf"
-            download="Razan_Aboushi_CV.pdf"
+            download="Razan_Aboushi_Full_Stack_Engineer_CV.pdf"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:opacity-90 transition-opacity"
           >
             Download Resume
