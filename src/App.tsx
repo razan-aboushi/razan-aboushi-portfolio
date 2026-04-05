@@ -3,7 +3,7 @@ import NavigationElegant from './components/NavigationElegant';
 import HeroSimple from './components/HeroSection';
 import SkillsElegant from './components/SkillsElegant';
 import ExperienceElegant from './components/ExperienceElegant';
-import ProjectsElegant from './components/ProjectsElegant';
+import ProjectsElegant from './components/Projects';
 import EducationElegant from './components/EducationElegant';
 import AnimatedBackground from './components/AnimatedBackground';
 import MediumArticles from './components/MediumArticles';
