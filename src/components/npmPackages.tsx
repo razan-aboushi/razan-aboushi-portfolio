@@ -45,17 +45,18 @@ export default function NpmPackages() {
 
       <div className="relative max-w-6xl mx-auto px-6">
         
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Box size={40} className="text-rose-500" />
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
-              Open Source <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-orange-400">Packages</span>
+     <div className="text-center mb-16">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 mb-4">
+            <Box size={36} className="text-rose-500 shrink-0 mb-2 md:mb-0" />
+            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+              Open Source <br className="md:hidden" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-orange-400">Packages</span>
             </h2>
           </div>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto px-4 md:px-0">
             Tools and components I've built to help the React developer community ship faster.
           </p>
-        </div>
+     </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {npmData.map((pkg, index) => (

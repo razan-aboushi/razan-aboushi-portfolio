@@ -1,7 +1,5 @@
-'use client';
-
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -63,11 +61,25 @@ export default function NavigationModern() {
           
           <a
             href="#home"
-            className="group text-2xl font-black tracking-tighter text-white flex items-center gap-1"
+            className="group relative flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02]"
           >
-            R<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 group-hover:from-purple-300 group-hover:to-blue-400 transition-colors">A.</span>
-          </a>
+            <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-[#0a0a0a]/50 border border-white/10 group-hover:border-purple-500/50 shadow-sm group-hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-500 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="relative z-10 text-xl font-black text-white tracking-tighter">
+                R<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">A</span>
+              </span>
+            </div>
 
+            <div className="hidden sm:flex flex-col justify-center">
+              <span className="text-base font-bold tracking-wide leading-none mb-1.5 text-transparent bg-clip-text bg-gradient-to-r from-white to-white group-hover:from-purple-300 group-hover:to-cyan-300 transition-all duration-500">
+                Razan
+              </span>
+              <span className="text-[11px] font-bold text-gray-500 tracking-[0.2em] uppercase leading-none group-hover:text-purple-400 transition-colors duration-500">
+                Aboushi
+              </span>
+            </div>
+          </a>
+          
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => {
               const sectionId = item.href.replace('#', '');
@@ -114,34 +126,43 @@ export default function NavigationModern() {
 
       <div 
         className={`md:hidden absolute top-full left-0 w-full bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/10 transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-[500px] py-6 opacity-100" : "max-h-0 py-0 opacity-0"
+          isOpen ? "max-h-[600px] py-6 opacity-100" : "max-h-0 py-0 opacity-0"
         }`}
       >
-        <div className="flex flex-col items-center space-y-2 px-6">
-          {navItems.map((item) => {
-             const sectionId = item.href.replace('#', '');
-             const isActive = activeSection === sectionId;
-             
-             return (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className={`w-full text-center py-3 text-lg font-medium rounded-xl transition-colors ${
-                  isActive 
-                    ? "bg-gradient-to-r from-purple-500/10 to-blue-500/10 text-white border border-purple-500/20" 
-                    : "text-gray-400 hover:text-white hover:bg-white/5"
-                }`}
-              >
-                {item.name}
-              </a>
-             )
-          })}
+        <div className="flex flex-col px-6">
+          {/* Navigation Links */}
+          <div className="flex flex-col space-y-1 mb-6">
+            {navItems.map((item) => {
+              const sectionId = item.href.replace('#', '');
+              const isActive = activeSection === sectionId;
+              
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`w-full text-center py-3.5 text-base font-medium rounded-xl transition-colors ${
+                    isActive 
+                      ? "bg-gradient-to-r from-purple-500/10 to-blue-500/10 text-white border border-purple-500/20" 
+                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  {item.name}
+                </a>
+              )
+            })}
+          </div>
+
+          {/* Divider */}
+          <div className="w-full h-px bg-white/10 mb-6" />
+
+          {/* The Fix: Premium Mobile CTA Button */}
           <a 
             href="mailto:razanalqaddoumi@gmail.com"
-            className="w-full text-center mt-4 py-3 text-lg font-medium text-white bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl"
+            className="flex items-center justify-center gap-2.5 w-full py-4 text-base font-semibold text-white bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-purple-500/50 active:scale-[0.98] transition-all duration-300"
             onClick={() => setIsOpen(false)}
           >
+            <Mail size={18} className="text-purple-400" />
             Let's Talk
           </a>
         </div>
