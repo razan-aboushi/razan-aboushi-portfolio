@@ -47,13 +47,10 @@ const skillCategories = [
 export default function SkillsElegant() {
   return (
     <section id="skills" className="relative py-24 bg-[#0a0a0a] overflow-hidden">
-      
-      {/* Subtle Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none" />
+     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         
-        {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">Arsenal</span>
@@ -63,7 +60,6 @@ export default function SkillsElegant() {
           </p>
         </div>
         
-        {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories.map((category, index) => {
             const Icon = category.icon;

@@ -16,7 +16,7 @@ const experienceData = [
       "Worked on Spotlights, Commercial Ads, and Listings Comparison features to improve visibility and engagement",
       "Optimized JavaScript bundles with code splitting, boosting Core Web Vitals more than 30%",
       "Reduced page load time by 2.5+ seconds through build enhancements",
-      "Resolved SEO issues including broken links, redirects, and server errors, improving site indexing and crawl efficiency",
+      "Resolved critical 4xx/5xx errors and redirect chains, resulting in a highly optimized crawl budget and improved site indexing",
       "Removed unnecessary dependencies, reducing bundle size, build complexity, and potential security risks while fixing memory leaks",
       "Diagnosed and fixed a critical backend bug in worker processes, improving system reliability and uptime",
       "Participated in SEO and business requirement meetings, analyzed documentation, communicated requirements clearly, and coordinated effectively with outsourcing teams",

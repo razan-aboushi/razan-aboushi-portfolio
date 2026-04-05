@@ -1,5 +1,3 @@
-'use client';
-
 import { Code, GitBranch, Mail } from 'lucide-react';
 
 export default function Footer() {

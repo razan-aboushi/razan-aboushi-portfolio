@@ -1,5 +1,3 @@
-'use client';
-
 import { useState, useEffect } from 'react';
 import { Download, Code, Server, Zap, Sparkles } from "lucide-react";
 
@@ -15,13 +13,17 @@ export default function Hero() {
   }, []);
 
   const heroData = {
+    name: "Razan Aboushi",
+    title: "Full Stack Engineer",
+    description: "Passionate about building scalable web applications with exceptional performance and user experience",
+    keywords: ["Full Stack Developer", "React Developer", "Next.js", "TypeScript", "Node.js", "Web Development", "Performance Optimization", "SEO Specialist"],
     links: {
       github: "https://github.com/razan-aboushi",
       linkedin: "https://www.linkedin.com/in/razan-aboushi/",
       medium: "https://medium.com/@razanalqaddoumi",
-      npm: "https://www.npmjs.com/~razan_aboushi",
-      email: "razanalqaddoumi@gmail.com",
-    },
+      email: "mailto:razanalqaddoumi@gmail.com",
+      npm: "https://www.npmjs.com/~razan_aboushi"
+    }
   };
 
   return (
