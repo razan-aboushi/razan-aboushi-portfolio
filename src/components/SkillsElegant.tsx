@@ -8,7 +8,7 @@ const skillCategories = [
     hoverBorder: "hover:border-cyan-500/50",
     skills: [
       "React.js", "Next.js", "TypeScript", "JavaScript (ES6+)", 
-      "HTML5", "CSS3", "Tailwind CSS", "Bootstrap", 
+      "HTML5", "CSS3", "Tailwind CSS", "Bootstrap", "WordPress",
       "Responsive Design", "UI/UX", "Figma"
     ],
   },
@@ -19,11 +19,11 @@ const skillCategories = [
     hoverBorder: "hover:border-blue-500/50",
     skills: [
       "Node.js", "Express.js", "RESTful APIs", "MySQL", 
-      "JWT", "OAuth", "Firebase", "WordPress"
+      "JWT", "OAuth", "Firebase"
     ],
   },
   {
-    title: "Tools & DevOps",
+    title: "Tools",
     icon: Wrench,
     iconColor: "text-pink-400",
     hoverBorder: "hover:border-pink-500/50",

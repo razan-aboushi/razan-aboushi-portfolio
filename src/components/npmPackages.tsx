@@ -109,7 +109,7 @@ export default function NpmPackages() {
                   className="flex-1 flex items-center justify-center gap-2 text-sm font-medium text-white px-4 py-2.5 rounded-lg bg-rose-600/10 hover:bg-rose-600/20 border border-rose-600/20 transition-colors"
                 >
                   <ExternalLink size={16} className="text-rose-400" />
-                  View Registry
+                  View Package
                 </a>
                 <a
                   href={pkg.links.github}
