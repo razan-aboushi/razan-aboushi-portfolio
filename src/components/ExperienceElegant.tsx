@@ -30,7 +30,7 @@ const experienceData = [
     isCurrent: false,
     achievements: [
       "Completed a highly selective, intensive 7-month full-stack development bootcamp",
-      "Developed responsive, data-driven web applications from scratch utilizing React, Node.js, and relational databases",
+      "Developed responsive, data-driven web applications from scratch utilizing React.js, Node.js, and relational databases and non-relational databases as MongoDB",
       "Gained practical, hands-on experience designing REST APIs, managing version control via Git, and executing team-based project development",
     ],
   },
@@ -42,6 +42,15 @@ const experienceData = [
     isCurrent: false,
     achievements: [
       "Managed academic book supply processes, procurement, and inventory tracking across multiple university departments",
+      "Managed Book Supplies: Responsible for the entire process of acquiring new books for the library.",
+      "Coordinated with Departments: Collected book request lists from different university colleges to identify the materials needed for students.",
+      "Student Training: Trained and supervised Library Science students to support them in completing their graduation requirements.",
+      "Inventory Checks: Reviewed the current library stock to determine whether requested books were already available or needed to be purchased.",
+      "Report Writing: Prepared clear reports and spreadsheets to track books, requests, and orders.",
+      "Supplier Communication: Contacted suppliers to obtain price quotations, compared offers to find the best option, and placed orders.",
+      "Order Handling: Received new shipments, checked the quality of the books, and prepared them for shelving.",
+      "System Updates: Entered and updated all book information accurately in the library’s computer system.",
+      "Organizing Books: Managed the labeling, cataloging, and classification of library materials.",
     ],
   },
 ];
@@ -145,7 +154,7 @@ export default function ExperienceElegant() {
             Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Experience</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            My career journey building scalable applications and solving complex technical challenges.
+            My career journey building scalable applications and solving complex technical challenges
           </p>
         </div>
         

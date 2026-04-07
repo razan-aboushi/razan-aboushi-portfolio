@@ -60,7 +60,7 @@ export default function MediumArticles() {
               Medium <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Articles</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Thoughts, insights, and technical writings on software engineering.
+            Thoughts, insights, and technical writings on software engineering
           </p>
         </div>
 

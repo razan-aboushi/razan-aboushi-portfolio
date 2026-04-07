@@ -23,7 +23,7 @@ const educationData = [
 
 export default function EducationElegant() {
   return (
-    <section id="education" className="relative pt-[8rem] pb-[9rem] bg-[#0a0a0a]">
+    <section id="education" className="relative pt-[8rem] pb-[6rem] bg-[#0a0a0a]">
       <div className="max-w-6xl mx-auto px-6">
         
         <div className="text-center mb-16">
@@ -31,7 +31,7 @@ export default function EducationElegant() {
             Education & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Background</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            My academic foundation and continuous learning journey.
+            My academic foundation and learning journey
           </p>
         </div>
         
@@ -39,7 +39,7 @@ export default function EducationElegant() {
           {educationData.map((edu, index) => (
             <div 
               key={index}
-              className="relative group flex flex-col p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/[0.07] transition-all duration-300 h-full"
+              className="relative group flex flex-col p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/[0.07] transition-all duration-300 h-full"
             >
                <div className={`absolute inset-0 rounded-2xl border transition-colors duration-300 pointer-events-none ${
                 edu.theme === 'blue' 
@@ -56,7 +56,7 @@ export default function EducationElegant() {
                   }`}>
                     {edu.theme === 'blue' ? <GraduationCap size={28} /> : <BookOpen size={28} />}
                   </div>
-                  <div className="flex-1 pt-1">
+                  <div className="flex-1">
                     <h3 className="text-2xl font-bold text-white mb-2 leading-snug">
                       {edu.degree}
                     </h3>

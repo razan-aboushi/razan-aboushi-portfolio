@@ -54,7 +54,7 @@ export default function NpmPackages() {
             </h2>
           </div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto px-4 md:px-0">
-            Tools and components I've built to help the React developer community ship faster.
+            Tools and components I've built to help the React developer community ship faster
           </p>
      </div>
 

@@ -56,7 +56,7 @@ export default function SkillsElegant() {
             Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">Arsenal</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A comprehensive toolkit of modern web technologies, performance strategies, and architectural methodologies.
+            A comprehensive toolkit of modern web technologies, performance strategies, and architectural methodologies
           </p>
         </div>
         
