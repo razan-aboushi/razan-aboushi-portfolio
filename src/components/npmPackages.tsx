@@ -33,6 +33,16 @@ const npmData: NpmPackageData[] = [
       npm: "https://www.npmjs.com/package/mobile-date-picker",
       github: "https://github.com/razan-aboushi/my-react-mobile-datepicker",
     }
+  },
+  {
+    name: "react-shopping-cart-kit",
+    description: "A modern, lightweight React shopping cart library with beautiful UI components. Features multi-currency support, shipping methods, discount codes, and internationalization.",
+    command: "npm i react-shopping-cart-kit",
+    tags: ["react", "typescript", "ecommerce", "shopping-cart", "multi-currency", "i18n"],
+    links: {
+      npm: "https://www.npmjs.com/package/react-shopping-cart-kit",
+      github: "https://github.com/razan-aboushi/react-shopping-cart",
+    }
   }
 ];
 
