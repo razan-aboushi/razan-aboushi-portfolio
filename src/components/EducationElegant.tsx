@@ -92,9 +92,7 @@ export default function EducationElegant() {
                   <div className="pt-5 border-t border-white/5 flex justify-start sm:justify-end">
                     <a
                       href={edu.certificateUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      download 
+                      download={edu.certificateUrl.split('/').pop()}
                       className={`flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-colors ${
                         edu.theme === 'blue'
                           ? 'bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 border border-blue-500/20'
