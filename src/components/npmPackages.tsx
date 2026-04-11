@@ -1,4 +1,5 @@
-import { Package, Terminal, GitBranch, ExternalLink, Box } from 'lucide-react';
+import { useState } from 'react';
+import { Package, Terminal, GitBranch, ExternalLink, Box, Copy, Check } from 'lucide-react';
 
 interface NpmLinks {
   npm: string;
@@ -47,6 +48,21 @@ const npmData: NpmPackageData[] = [
 ];
 
 export default function NpmPackages() {
+  // 1. State to track which package was copied (shows checkmark temporarily)
+  const [copiedPackage, setCopiedPackage] = useState<string | null>(null);
+
+  // 2. The copy function
+  const handleCopy = async (command: string, pkgName: string) => {
+    try {
+      await navigator.clipboard.writeText(command);
+      setCopiedPackage(pkgName);
+      // Reset back to the copy icon after 2 seconds
+      setTimeout(() => setCopiedPackage(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy command', err);
+    }
+  };
+
   return (
     <section id="packages" className="relative py-20 bg-[#0a0a0a] scroll-mt-20">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -55,7 +71,7 @@ export default function NpmPackages() {
 
       <div className="relative max-w-6xl mx-auto px-6">
         
-     <div className="text-center mb-16">
+        <div className="text-center mb-16">
           <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 mb-4">
             <Box size={36} className="text-rose-500 shrink-0 mb-2 md:mb-0" />
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
@@ -66,14 +82,14 @@ export default function NpmPackages() {
           <p className="text-gray-400 text-lg max-w-2xl mx-auto px-4 md:px-0">
             Tools and components I've built to help the React developer community ship faster
           </p>
-     </div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {npmData.map((pkg, index) => (
-             <div 
-             key={index}
-             className="group relative flex flex-col p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/[0.07] hover:border-rose-500/40 transition-all duration-300 h-full"
-           >
+            <div 
+              key={index}
+              className="group relative flex flex-col p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/[0.07] hover:border-rose-500/40 transition-all duration-300 h-full"
+            >
               
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
@@ -103,11 +119,25 @@ export default function NpmPackages() {
 
               <div className="mb-8">
                 <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">Install via NPM</p>
-                <div className="flex items-center p-3.5 bg-[#050505] rounded-xl border border-white/5 font-mono text-sm">
-                  <div className="flex items-center gap-3 text-gray-300 scrollbar-hide overflow-x-auto w-full">
+                {/* 3. Updated Command Block to include the flex-between layout and Copy Button */}
+                <div className="flex items-center justify-between p-3.5 bg-[#050505] rounded-xl border border-white/5 font-mono text-sm group/cmd transition-colors hover:border-white/10">
+                  <div className="flex items-center gap-3 text-gray-300 scrollbar-hide overflow-x-auto">
                     <Terminal size={16} className="text-rose-500 shrink-0" />
-                    <span className="whitespace-nowrap selection:bg-rose-500/30 w-full">{pkg.command}</span>
+                    <span className="whitespace-nowrap selection:bg-rose-500/30">{pkg.command}</span>
                   </div>
+                  
+                  {/* Copy Button */}
+                  <button
+                    onClick={() => handleCopy(pkg.command, pkg.name)}
+                    className="ml-3 shrink-0 p-1.5 rounded-lg text-gray-500 hover:text-white hover:bg-white/10 transition-all focus:outline-none focus:ring-2 focus:ring-rose-500/50"
+                    aria-label={`Copy install command for ${pkg.name}`}
+                  >
+                    {copiedPackage === pkg.name ? (
+                      <Check size={16} className="text-green-500" />
+                    ) : (
+                      <Copy size={16} className="opacity-70 group-hover/cmd:opacity-100 transition-opacity" />
+                    )}
+                  </button>
                 </div>
               </div>
 

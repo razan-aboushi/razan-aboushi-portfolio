@@ -1,4 +1,4 @@
-import { GraduationCap, Award, Calendar, MapPin, Sparkles, BookOpen } from "lucide-react";
+import { GraduationCap, Award, Calendar, MapPin, Sparkles, BookOpen, Download } from "lucide-react";
 
 const educationData = [
   {
@@ -8,7 +8,8 @@ const educationData = [
     duration: "Sep 2018 – Aug 2022",
     gpa: "3.94/4.00 - Excellent",
     isHighlight: true, 
-    theme: "blue"
+    theme: "blue",
+    certificateUrl: "/certificates/JuGateAcademyCertificate.pdf"
   },
   {
     degree: "Diploma in English Language and Literature",
@@ -17,7 +18,8 @@ const educationData = [
     duration: "Dec 2022 – May 2024",
     gpa: "Excellent Rating",
     isHighlight: false,
-    theme: "purple"
+    theme: "purple",
+    certificateUrl: "/certificates/universityCertificate.pdf"
   },
 ];
 
@@ -66,7 +68,7 @@ export default function EducationElegant() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-3 mt-auto">
+                <div className="flex flex-wrap gap-3 mt-auto mb-6">
                   <div className="flex items-center gap-1.5 text-sm text-gray-400 bg-gray-900/80 px-3 py-1.5 rounded-md border border-gray-800">
                     <Calendar size={14} />
                     <span>{edu.duration}</span>
@@ -84,7 +86,27 @@ export default function EducationElegant() {
                     {edu.isHighlight ? <Sparkles size={14} /> : <Award size={14} />}
                     <span>{edu.gpa}</span>
                   </div>
-                </div>                  
+                </div>  
+
+                {edu.certificateUrl && (
+                  <div className="pt-5 border-t border-white/5 flex justify-start sm:justify-end">
+                    <a
+                      href={edu.certificateUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      download 
+                      className={`flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-colors ${
+                        edu.theme === 'blue'
+                          ? 'bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 border border-blue-500/20'
+                          : 'bg-purple-500/10 text-purple-400 hover:bg-purple-500/20 border border-purple-500/20'
+                      }`}
+                    >
+                      <Download size={16} />
+                      View Certificate
+                    </a>
+                  </div>
+                )}
+                                
               </div>
             </div>
           ))}
