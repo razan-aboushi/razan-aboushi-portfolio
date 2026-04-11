@@ -9,7 +9,7 @@ const educationData = [
     gpa: "3.94/4.00 - Excellent",
     isHighlight: true, 
     theme: "blue",
-    certificateUrl: "/certificates/JuGateAcademyCertificate.pdf"
+    certificateUrl: "/certificates/universityCertificate.pdf"
   },
   {
     degree: "Diploma in English Language and Literature",
@@ -19,7 +19,7 @@ const educationData = [
     gpa: "Excellent Rating",
     isHighlight: false,
     theme: "purple",
-    certificateUrl: "/certificates/universityCertificate.pdf"
+    certificateUrl: "/certificates/JuGateAcademyCertificate.pdf" 
   },
 ];
 
