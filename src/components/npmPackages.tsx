@@ -44,6 +44,16 @@ const npmData: NpmPackageData[] = [
       npm: "https://www.npmjs.com/package/react-shopping-cart-kit",
       github: "https://github.com/razan-aboushi/react-shopping-cart",
     }
+  },
+  {
+    name: "why-hydration",
+    description: "Tells you which component broke hydration, what differed, and how to fix it — in dev, with zero production cost.",
+    command: "npm i why-hydration",
+    tags: ["react", "nextjs", "hydration", "ssr", "devtools", "diagnostics"],
+    links: {
+      npm: "https://www.npmjs.com/package/why-hydration",
+      github: "https://github.com/razan-aboushi/why-hydration",
+    }
   }
 ];
 
