@@ -32,7 +32,7 @@ A modern, performant portfolio website built with React.js, TypeScript, and Tail
 
 ## 📋 About
 
-Professional portfolio website showcasing my work as a Full Stack Engineer with 2+ years of experience building scalable web applications using React.js, TypeScript, and modern web technologies.
+Professional portfolio website showcasing my work as a Full Stack Engineer with 3+ years of experience building scalable web applications using React.js, TypeScript, and modern web technologies.
 
 ## 🛠️ Tech Stack
 

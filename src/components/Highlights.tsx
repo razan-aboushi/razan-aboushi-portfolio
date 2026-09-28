@@ -4,7 +4,7 @@ import Reveal, { staggerDelay } from "./ui/Reveal";
 import { npmData } from "./npmPackages";
 
 const STATS = [
-  { value: 2, suffix: "+", label: "Years building production web apps" },
+  { value: 3, suffix: "+", label: "Years building production web apps" },
   { value: 30, suffix: "%+", label: "Core Web Vitals improvement" },
   { value: npmData.length, suffix: "", label: "Open-source NPM packages" },
   { value: 39, suffix: "+", label: "Projects on GitHub" },
