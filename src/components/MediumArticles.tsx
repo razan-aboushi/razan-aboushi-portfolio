@@ -108,7 +108,7 @@ export default function MediumArticles() {
                   >
                     <BookOpen className="w-4 h-4 text-purple-400" aria-hidden="true" />
                     Read Article
-                    <span className="sr-only">: {article.title} (opens in a new tab)</span>
+                    <span className="sr-only">: {article.title}</span>
                     <ExternalLink className="w-3.5 h-3.5 text-gray-400" aria-hidden="true" />
                   </a>
                 </div>

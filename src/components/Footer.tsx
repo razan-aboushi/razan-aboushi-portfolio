@@ -39,7 +39,7 @@ export default function Footer() {
               className="shimmer inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 shadow-[0_0_25px_rgba(139,92,246,0.35)] hover:shadow-[0_0_40px_rgba(236,72,153,0.45)] hover:scale-[1.03] transition-all duration-300"
             >
               <Mail size={18} aria-hidden="true" />
-              {CONTACT_EMAIL}
+              Email me
             </a>
             <a
               href={RESUME_URL}
@@ -50,6 +50,10 @@ export default function Footer() {
               Download Resume
             </a>
           </div>
+          {/* The address stays visible and easy to copy, without being the link text itself */}
+          <p className="mt-5 text-sm text-gray-400">
+            or write to <span className="select-all font-medium text-gray-200">{CONTACT_EMAIL}</span>
+          </p>
         </Reveal>
 
         <div className="grid gap-10 py-12 md:grid-cols-3 md:items-start">

@@ -213,20 +213,25 @@ export default function ProjectsElegant() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           {standardProjects.map((project, index) => (
             <Reveal key={project.title} delay={staggerDelay(index % 4)} className="h-full">
-              <a
-                href={project.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${project.title} — view source on GitHub (opens in a new tab)`}
-                className="spotlight p-5 rounded-xl bg-white/[0.04] border border-white/10 hover:border-purple-500/40 hover:bg-white/[0.06] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group"
-              >
-                <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">{project.title}</h4>
+              {/* Only the title is the link (short, descriptive anchor text); its ::after stretches over the card so the whole card stays clickable. */}
+              <article className="spotlight p-5 rounded-xl bg-white/[0.04] border border-white/10 hover:border-purple-500/40 hover:bg-white/[0.06] hover:-translate-y-1 focus-within:ring-2 focus-within:ring-purple-400/70 transition-all duration-300 flex flex-col h-full group">
+                <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                  <a
+                    href={project.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="after:absolute after:inset-0 after:rounded-xl after:content-[''] focus-visible:outline-none"
+                  >
+                    {project.title}
+                    <span className="sr-only"> — source on GitHub</span>
+                  </a>
+                </h4>
                 <p className="text-sm text-gray-400 mb-4 flex-grow line-clamp-3">{project.description}</p>
                 <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
                   <span className="text-xs text-gray-300 px-2 py-0.5 rounded-md bg-white/5 border border-white/10">{project.technologies[0]}</span>
                   <GitBranch size={18} className="text-gray-400 group-hover:text-white transition-colors" aria-hidden="true" />
                 </div>
-              </a>
+              </article>
             </Reveal>
           ))}
         </div>

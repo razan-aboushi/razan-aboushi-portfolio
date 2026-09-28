@@ -101,7 +101,7 @@ export default function EducationElegant() {
                       }`}
                     >
                       View Certificate
-                      <span className="sr-only">: {edu.degree}, {edu.institution} (PDF, opens in a new tab)</span>
+                      <span className="sr-only">: {edu.institution}</span>
                       <ExternalLink size={15} aria-hidden="true" />
                     </a>
                   </div>
