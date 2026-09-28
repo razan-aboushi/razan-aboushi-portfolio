@@ -138,7 +138,7 @@ export default function HeroSection() {
             href="#projects"
             whileHover={{ scale: 1.04, boxShadow: "0 0 40px rgba(236,72,153,0.45)" }}
             whileTap={{ scale: 0.97 }}
-            className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-white bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 shadow-[0_0_25px_rgba(139,92,246,0.35)]"
+            className="shimmer group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-white bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 shadow-[0_0_25px_rgba(139,92,246,0.35)]"
           >
             View Projects
             <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />

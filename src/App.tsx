@@ -8,8 +8,13 @@ import EducationElegant from './components/EducationElegant';
 import MediumArticles from './components/MediumArticles';
 import NpmPackages from './components/npmPackages';
 import Footer from './components/Footer';
+import Highlights from './components/Highlights';
+import ScrollProgress from './components/ui/ScrollProgress';
+import { useCardSpotlight } from './hooks/useCardSpotlight';
 
 function App() {
+  useCardSpotlight();
+
   return (
     // `strict` makes any accidental full `motion.*` import throw, keeping the lighter bundle honest.
     <LazyMotion features={domAnimation} strict>
@@ -22,9 +27,11 @@ function App() {
         >
           Skip to content
         </a>
+        <ScrollProgress />
         <NavigationElegant />
         <main id="main" className="relative z-10">
           <HeroSection />
+          <Highlights />
           <SkillsElegant />
           <ExperienceElegant />
           <NpmPackages />

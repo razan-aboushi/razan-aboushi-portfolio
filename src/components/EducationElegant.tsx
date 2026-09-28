@@ -41,7 +41,7 @@ export default function EducationElegant() {
           {educationData.map((edu, index) => (
             <Reveal key={edu.degree} delay={staggerDelay(index)} className="h-full">
             <div
-              className="relative group flex flex-col p-6 sm:p-8 rounded-2xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.06] hover:-translate-y-1 transition-all duration-300 h-full"
+              className="spotlight relative group flex flex-col p-6 sm:p-8 rounded-2xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.06] hover:-translate-y-1 transition-all duration-300 h-full"
             >
                <div className={`absolute inset-0 rounded-2xl border transition-colors duration-300 pointer-events-none ${
                 edu.theme === 'blue' 

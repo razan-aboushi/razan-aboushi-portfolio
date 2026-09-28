@@ -74,7 +74,7 @@ export default function MediumArticles() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {staticArticles.map((article, index) => (
             <Reveal key={article.link} delay={staggerDelay(index % 3)} className="h-full">
-              <article className="group relative flex flex-col bg-white/[0.04] border border-white/10 hover:bg-white/[0.06] hover:border-purple-500/50 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 h-full">
+              <article className="spotlight group relative flex flex-col bg-white/[0.04] border border-white/10 hover:bg-white/[0.06] hover:border-purple-500/50 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 h-full">
                 <div className="relative aspect-[2/1] overflow-hidden shrink-0 bg-white/5">
                   <img
                     src={unsplash(article.photo, 720)}
@@ -122,7 +122,7 @@ export default function MediumArticles() {
             href={MEDIUM_PROFILE}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex sm:inline-flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 hover:brightness-110 text-white font-semibold rounded-full transition-all duration-300 sm:hover:scale-105 hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]"
+            className="shimmer group flex sm:inline-flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 hover:brightness-110 text-white font-semibold rounded-full transition-all duration-300 sm:hover:scale-105 hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]"
           >
             <BookOpen className="w-5 h-5 shrink-0" aria-hidden="true" />
             <span className="text-sm sm:text-base whitespace-nowrap">View All 10+ Articles on Medium</span>

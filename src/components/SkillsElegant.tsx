@@ -65,7 +65,7 @@ export default function SkillsElegant() {
             return (
               <Reveal key={category.title} delay={staggerDelay(index)} className="h-full">
                 <div
-                  className={`group h-full p-6 sm:p-8 rounded-2xl bg-white/[0.04] border border-white/10 transition-all duration-300 hover:bg-white/[0.06] hover:-translate-y-1 ${category.hoverBorder}`}
+                  className={`spotlight group h-full p-6 sm:p-8 rounded-2xl bg-white/[0.04] border border-white/10 transition-all duration-300 hover:bg-white/[0.06] hover:-translate-y-1 ${category.hoverBorder}`}
                 >
                   <div className="flex items-center gap-4 mb-6">
                     <div className={`p-3 rounded-xl bg-white/5 border border-white/10 ${category.iconColor} transition-transform duration-300 group-hover:scale-110`}>

@@ -16,7 +16,7 @@ interface NpmPackageData {
   links: NpmLinks;
 }
 
-const npmData: NpmPackageData[] = [
+export const npmData: NpmPackageData[] = [
   {
     name: "react-perfect-gallery",
     description: "A highly reusable, accessible image gallery component featuring mobile-first design and infinite scrolling capabilities.",
@@ -97,7 +97,7 @@ export default function NpmPackages() {
           {npmData.map((pkg, index) => (
             <Reveal key={pkg.name} delay={staggerDelay(index)} className="h-full">
             <div
-              className="group relative flex flex-col p-6 sm:p-8 bg-white/[0.04] border border-white/10 rounded-2xl hover:bg-white/[0.06] hover:border-pink-500/40 hover:-translate-y-1 transition-all duration-300 h-full"
+              className="spotlight group relative flex flex-col p-6 sm:p-8 bg-white/[0.04] border border-white/10 rounded-2xl hover:bg-white/[0.06] hover:border-pink-500/40 hover:-translate-y-1 transition-all duration-300 h-full"
             >
               
               <div className="flex items-start justify-between mb-4">

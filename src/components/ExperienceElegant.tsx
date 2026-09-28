@@ -81,7 +81,7 @@ const ExperienceCard = ({ exp, index }: { exp: Experience; index: number }) => {
         }`}
       />
 
-      <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 hover:border-purple-500/30 hover:bg-white/[0.07] transition-all duration-300">
+      <div className="spotlight bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 hover:border-purple-500/30 hover:bg-white/[0.07] transition-all duration-300">
         
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
           <div>

@@ -1,4 +1,4 @@
-import { ArrowUp, Download, Mail, MapPin } from 'lucide-react';
+import { ArrowUp, Download, Mail } from 'lucide-react';
 import SocialIconLinks, { CONTACT_EMAIL } from './SocialLinks';
 import Reveal from './ui/Reveal';
 import { RESUME_FILE, RESUME_URL } from '../utils/publicAsset';
@@ -36,7 +36,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
             <a
               href={`mailto:${CONTACT_EMAIL}`}
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 shadow-[0_0_25px_rgba(139,92,246,0.35)] hover:shadow-[0_0_40px_rgba(236,72,153,0.45)] hover:scale-[1.03] transition-all duration-300"
+              className="shimmer inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 shadow-[0_0_25px_rgba(139,92,246,0.35)] hover:shadow-[0_0_40px_rgba(236,72,153,0.45)] hover:scale-[1.03] transition-all duration-300"
             >
               <Mail size={18} aria-hidden="true" />
               {CONTACT_EMAIL}
@@ -63,10 +63,6 @@ export default function Footer() {
                 <span className="block text-sm text-gray-400">Full Stack Engineer</span>
               </span>
             </a>
-            <p className="flex items-center gap-1.5 text-sm text-gray-400">
-              <MapPin size={14} className="text-pink-400" aria-hidden="true" />
-              Amman, Jordan
-            </p>
           </div>
 
           <nav aria-label="Footer" className="flex justify-center">

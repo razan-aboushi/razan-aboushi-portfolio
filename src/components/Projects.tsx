@@ -149,7 +149,7 @@ export default function ProjectsElegant() {
             return (
               <Reveal key={project.title} delay={staggerDelay(index)} className="h-full">
               <div
-                className="group relative flex h-full flex-col justify-between p-6 sm:p-8 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-purple-500/50 hover:bg-white/[0.06] hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                className="spotlight group relative flex h-full flex-col justify-between p-6 sm:p-8 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-purple-500/50 hover:bg-white/[0.06] hover:-translate-y-1 transition-all duration-300 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
@@ -214,7 +214,7 @@ export default function ProjectsElegant() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${project.title} — view source on GitHub (opens in a new tab)`}
-                className="p-5 rounded-xl bg-white/[0.04] border border-white/10 hover:border-purple-500/40 hover:bg-white/[0.06] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group"
+                className="spotlight p-5 rounded-xl bg-white/[0.04] border border-white/10 hover:border-purple-500/40 hover:bg-white/[0.06] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group"
               >
                 <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">{project.title}</h4>
                 <p className="text-sm text-gray-400 mb-4 flex-grow line-clamp-3">{project.description}</p>

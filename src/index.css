@@ -68,6 +68,85 @@ code {
   }
 }
 
+/*
+ * Cursor spotlight for cards: a soft glow plus a glowing border that follow the pointer.
+ * --x / --y are set by useCardSpotlight(); the pseudo-elements sit between the card's own
+ * background and its content thanks to `isolation: isolate` + z-index -1.
+ */
+.spotlight {
+  position: relative;
+  isolation: isolate;
+}
+
+.spotlight::before,
+.spotlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.spotlight::before {
+  background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), rgba(168, 85, 247, 0.17), transparent 45%);
+}
+
+.spotlight::after {
+  /* sit exactly on top of the card's 1px border */
+  inset: -1px;
+  padding: 1px;
+  background: radial-gradient(300px circle at var(--x, 50%) var(--y, 50%), rgba(236, 72, 153, 0.75), rgba(139, 92, 246, 0.45) 35%, transparent 65%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* overflow:hidden clips the border area, so those cards keep the ring just inside it */
+.spotlight.overflow-hidden::after {
+  inset: 0;
+}
+
+.spotlight:hover::before,
+.spotlight:hover::after {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .spotlight::before,
+  .spotlight::after {
+    display: none;
+  }
+}
+
+/* A slow sheen that sweeps across primary buttons. */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: shimmer-sweep 4.5s ease-in-out infinite;
+}
+
+@keyframes shimmer-sweep {
+  0%, 55% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
 @keyframes blink {
   0%, 49% {
     opacity: 1;

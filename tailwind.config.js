@@ -20,6 +20,7 @@ module.exports = {
         'glow-breathe': 'glowBreathe 5s ease-in-out infinite',
         'gradient-shift': 'gradientShift 12s ease-in-out infinite',
         'aurora': 'aurora 18s ease-in-out infinite alternate',
+        'marquee': 'marquee 45s linear infinite',
       },
       keyframes: {
         particleDrift: {
@@ -35,6 +36,11 @@ module.exports = {
         gradientShift: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
+        },
+        // The track holds two copies of the list, so sliding by half loops seamlessly.
+        marquee: {
+          '0%': { transform: 'translate3d(0, 0, 0)' },
+          '100%': { transform: 'translate3d(-50%, 0, 0)' },
         },
         // Transform-only so the drifting background blobs stay on the compositor (no repaints).
         aurora: {
