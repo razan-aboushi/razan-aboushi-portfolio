@@ -1,5 +1,7 @@
-import { useState } from 'react';
-import { Package, Terminal, GitBranch, ExternalLink, Box, Copy, Check } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Package, Terminal, GitBranch, ExternalLink, Copy, Check } from 'lucide-react';
+import SectionHeading from './ui/SectionHeading';
+import Reveal, { staggerDelay } from './ui/Reveal';
 
 interface NpmLinks {
   npm: string;
@@ -58,47 +60,44 @@ const npmData: NpmPackageData[] = [
 ];
 
 export default function NpmPackages() {
-  // 1. State to track which package was copied (shows checkmark temporarily)
+  // Package whose install command was just copied (shows a checkmark briefly)
   const [copiedPackage, setCopiedPackage] = useState<string | null>(null);
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // 2. The copy function
+  useEffect(() => () => {
+    if (resetTimer.current) clearTimeout(resetTimer.current);
+  }, []);
+
   const handleCopy = async (command: string, pkgName: string) => {
     try {
       await navigator.clipboard.writeText(command);
       setCopiedPackage(pkgName);
-      // Reset back to the copy icon after 2 seconds
-      setTimeout(() => setCopiedPackage(null), 2000);
+      if (resetTimer.current) clearTimeout(resetTimer.current);
+      resetTimer.current = setTimeout(() => setCopiedPackage(null), 2000);
     } catch (err) {
       console.error('Failed to copy command', err);
     }
   };
 
   return (
-    <section id="packages" className="relative py-20 bg-[#0a0a0a] scroll-mt-20">
+    <section id="packages" className="relative py-24 md:py-28 bg-[#0a0a0a]">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[30%] left-[50%] -translate-x-1/2 w-[600px] h-[400px] bg-rose-900/10 blur-[120px] rounded-full mix-blend-screen" />
+        <div className="absolute top-[30%] left-[50%] -translate-x-1/2 w-[600px] h-[400px] bg-pink-900/10 blur-[120px] rounded-full mix-blend-screen" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-6">
-        
-        <div className="text-center mb-16">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 mb-4">
-            <Box size={36} className="text-rose-500 shrink-0 mb-2 md:mb-0" />
-            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              Open Source <br className="md:hidden" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-orange-400">Packages</span>
-            </h2>
-          </div>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto px-4 md:px-0">
-            Tools and components I've built to help the React developer community ship faster
-          </p>
-        </div>
+        <SectionHeading
+          eyebrow="NPM Packages"
+          title="Open Source"
+          highlight="Packages"
+          description="Tools and components I've built to help the React developer community ship faster"
+        />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {npmData.map((pkg, index) => (
-            <div 
-              key={index}
-              className="group relative flex flex-col p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/[0.07] hover:border-rose-500/40 transition-all duration-300 h-full"
+            <Reveal key={pkg.name} delay={staggerDelay(index)} className="h-full">
+            <div
+              className="group relative flex flex-col p-6 sm:p-8 bg-white/[0.04] border border-white/10 rounded-2xl hover:bg-white/[0.06] hover:border-pink-500/40 hover:-translate-y-1 transition-all duration-300 h-full"
             >
               
               <div className="flex items-start justify-between mb-4">
@@ -128,26 +127,28 @@ export default function NpmPackages() {
               </div>
 
               <div className="mb-8">
-                <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">Install via NPM</p>
-                {/* 3. Updated Command Block to include the flex-between layout and Copy Button */}
+                <p className="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Install via NPM</p>
                 <div className="flex items-center justify-between p-3.5 bg-[#050505] rounded-xl border border-white/5 font-mono text-sm group/cmd transition-colors hover:border-white/10">
                   <div className="flex items-center gap-3 text-gray-300 scrollbar-hide overflow-x-auto">
                     <Terminal size={16} className="text-rose-500 shrink-0" />
                     <span className="whitespace-nowrap selection:bg-rose-500/30">{pkg.command}</span>
                   </div>
                   
-                  {/* Copy Button */}
                   <button
+                    type="button"
                     onClick={() => handleCopy(pkg.command, pkg.name)}
-                    className="ml-3 shrink-0 p-1.5 rounded-lg text-gray-500 hover:text-white hover:bg-white/10 transition-all focus:outline-none focus:ring-2 focus:ring-rose-500/50"
-                    aria-label={`Copy install command for ${pkg.name}`}
+                    className="ml-3 shrink-0 p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                    aria-label={copiedPackage === pkg.name ? `Copied install command for ${pkg.name}` : `Copy install command for ${pkg.name}`}
                   >
                     {copiedPackage === pkg.name ? (
-                      <Check size={16} className="text-green-500" />
+                      <Check size={16} className="text-green-500" aria-hidden="true" />
                     ) : (
-                      <Copy size={16} className="opacity-70 group-hover/cmd:opacity-100 transition-opacity" />
+                      <Copy size={16} className="opacity-70 group-hover/cmd:opacity-100 transition-opacity" aria-hidden="true" />
                     )}
                   </button>
+                  <span className="sr-only" aria-live="polite">
+                    {copiedPackage === pkg.name ? "Copied to clipboard" : ""}
+                  </span>
                 </div>
               </div>
 
@@ -173,6 +174,7 @@ export default function NpmPackages() {
               </div>
 
             </div>
+            </Reveal>
           ))}
         </div>
       </div>

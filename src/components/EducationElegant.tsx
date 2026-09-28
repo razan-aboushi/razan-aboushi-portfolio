@@ -1,4 +1,7 @@
-import { GraduationCap, Award, Calendar, MapPin, Sparkles, BookOpen, Download } from "lucide-react";
+import { GraduationCap, Award, Calendar, MapPin, Sparkles, BookOpen, ExternalLink } from "lucide-react";
+import SectionHeading from "./ui/SectionHeading";
+import Reveal, { staggerDelay } from "./ui/Reveal";
+import { publicAsset } from "../utils/publicAsset";
 
 const educationData = [
   {
@@ -9,7 +12,7 @@ const educationData = [
     gpa: "3.94/4.00 - Excellent",
     isHighlight: true, 
     theme: "blue",
-    certificateUrl: "/certificates/universityCertificate.pdf"
+    certificateUrl: publicAsset("certificates/universityCertificate.pdf"),
   },
   {
     degree: "Diploma in English Language and Literature",
@@ -19,29 +22,26 @@ const educationData = [
     gpa: "Excellent Rating",
     isHighlight: false,
     theme: "purple",
-    certificateUrl: "/certificates/JuGateAcademyCertificate.pdf" 
+    certificateUrl: publicAsset("certificates/JuGateAcademyCertificate.pdf"),
   },
 ];
 
 export default function EducationElegant() {
   return (
-    <section id="education" className="relative pt-[8rem] pb-[6rem] bg-[#0a0a0a]">
+    <section id="education" className="relative py-24 md:py-28 bg-[#0a0a0a]">
       <div className="max-w-6xl mx-auto px-6">
-        
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Education & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Background</span>
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            My academic foundation and learning journey
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <SectionHeading
+          eyebrow="Education"
+          title="Education &"
+          highlight="Background"
+          description="My academic foundation and learning journey"
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {educationData.map((edu, index) => (
-            <div 
-              key={index}
-              className="relative group flex flex-col p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/[0.07] transition-all duration-300 h-full"
+            <Reveal key={edu.degree} delay={staggerDelay(index)} className="h-full">
+            <div
+              className="relative group flex flex-col p-6 sm:p-8 rounded-2xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.06] hover:-translate-y-1 transition-all duration-300 h-full"
             >
                <div className={`absolute inset-0 rounded-2xl border transition-colors duration-300 pointer-events-none ${
                 edu.theme === 'blue' 
@@ -92,21 +92,23 @@ export default function EducationElegant() {
                   <div className="pt-5 border-t border-white/5 flex justify-start sm:justify-end">
                     <a
                       href={edu.certificateUrl}
-                      download={edu.certificateUrl.split('/').pop()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View Certificate — ${edu.institution} (PDF, opens in a new tab)`}
                       className={`flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-colors ${
                         edu.theme === 'blue'
-                          ? 'bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 border border-blue-500/20'
-                          : 'bg-purple-500/10 text-purple-400 hover:bg-purple-500/20 border border-purple-500/20'
+                          ? 'bg-blue-500/10 text-blue-300 hover:bg-blue-500/20 border border-blue-500/20'
+                          : 'bg-purple-500/10 text-purple-300 hover:bg-purple-500/20 border border-purple-500/20'
                       }`}
                     >
-                      <Download size={16} />
                       View Certificate
+                      <ExternalLink size={15} aria-hidden="true" />
                     </a>
                   </div>
                 )}
-                                
               </div>
             </div>
+            </Reveal>
           ))}
         </div>
 

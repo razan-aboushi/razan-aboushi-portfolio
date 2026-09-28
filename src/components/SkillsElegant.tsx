@@ -1,4 +1,6 @@
 import { Layout, Server, Wrench, Zap } from "lucide-react";
+import SectionHeading from "./ui/SectionHeading";
+import Reveal, { staggerDelay } from "./ui/Reveal";
 
 const skillCategories = [
   {
@@ -46,48 +48,44 @@ const skillCategories = [
 
 export default function SkillsElegant() {
   return (
-    <section id="skills" className="relative py-24 bg-[#0a0a0a] overflow-hidden">
-     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none" />
+    <section id="skills" className="relative py-24 md:py-28 bg-[#0a0a0a] overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] max-w-full h-[400px] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
-        
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">Arsenal</span>
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A comprehensive toolkit of modern web technologies, performance strategies, and architectural methodologies
-          </p>
-        </div>
-        
+        <SectionHeading
+          eyebrow="Skills"
+          title="Technical"
+          highlight="Arsenal"
+          description="A comprehensive toolkit of modern web technologies, performance strategies, and architectural methodologies"
+        />
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories.map((category, index) => {
             const Icon = category.icon;
             return (
-              <div 
-                key={index}
-                className={`p-8 rounded-2xl bg-white/5 border border-white/10 transition-colors duration-300 ${category.hoverBorder}`}
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`p-3 rounded-lg bg-white/5 ${category.iconColor}`}>
-                    <Icon size={24} strokeWidth={1.5} />
+              <Reveal key={category.title} delay={staggerDelay(index)} className="h-full">
+                <div
+                  className={`group h-full p-6 sm:p-8 rounded-2xl bg-white/[0.04] border border-white/10 transition-all duration-300 hover:bg-white/[0.06] hover:-translate-y-1 ${category.hoverBorder}`}
+                >
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className={`p-3 rounded-xl bg-white/5 border border-white/10 ${category.iconColor} transition-transform duration-300 group-hover:scale-110`}>
+                      <Icon size={24} strokeWidth={1.5} aria-hidden="true" />
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-semibold text-white">{category.title}</h3>
                   </div>
-                  <h3 className="text-2xl font-semibold text-white">
-                    {category.title}
-                  </h3>
+
+                  <ul className="flex flex-wrap gap-2.5">
+                    {category.skills.map((skill) => (
+                      <li
+                        key={skill}
+                        className="px-3.5 py-1.5 sm:px-4 sm:py-2 bg-gray-900/80 border border-gray-800 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-gray-800 hover:border-gray-600 transition-colors"
+                      >
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                
-                <div className="flex flex-wrap gap-2.5">
-                  {category.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-4 py-2 bg-gray-900 border border-gray-800 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-gray-800 hover:border-gray-600 transition-all cursor-default"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>

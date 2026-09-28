@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Calendar, MapPin, ChevronRight, Briefcase, ChevronDown, ChevronUp } from "lucide-react";
+import SectionHeading from "./ui/SectionHeading";
+import Reveal, { staggerDelay } from "./ui/Reveal";
 
 const experienceData = [
   {
@@ -55,21 +57,22 @@ const experienceData = [
   },
 ];
 
-const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
+type Experience = (typeof experienceData)[number];
+
+const INITIAL_COUNT = 3;
+
+const ExperienceCard = ({ exp, index }: { exp: Experience; index: number }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  
-  const INITIAL_COUNT = 3; 
+
   const hasMore = exp.achievements.length > INITIAL_COUNT;
-  
-  const visibleAchievements = isExpanded 
-    ? exp.achievements 
+  const listId = `achievements-${index}`;
+
+  const visibleAchievements = isExpanded
+    ? exp.achievements
     : exp.achievements.slice(0, INITIAL_COUNT);
 
   return (
-    <div 
-      className="relative pl-10 md:pl-24 animate-fade-in"
-      style={{ animationDelay: `${0.2 + index * 0.15}s` }}
-    >
+    <Reveal delay={staggerDelay(index)} className="relative pl-10 md:pl-24">
       <div 
         className={`absolute left-[7px] md:left-[31px] top-1.5 w-[18px] h-[18px] rounded-full border-4 border-[#0a0a0a] z-10 ${
           exp.isCurrent 
@@ -103,11 +106,11 @@ const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
           </div>
         </div>
 
-        <ul className="space-y-3 relative">
-          {visibleAchievements.map((achievement: string, achIndex: number) => (
-            <li 
-              key={achIndex} 
-              className="flex items-start gap-3 group animate-fade-in"
+        <ul id={listId} className="space-y-3 relative">
+          {visibleAchievements.map((achievement) => (
+            <li
+              key={achievement}
+              className="flex items-start gap-3 group"
             >
               <ChevronRight 
                 size={16} 
@@ -121,9 +124,12 @@ const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
         </ul>
 
         {hasMore && (
-          <button 
+          <button
+            type="button"
             onClick={() => setIsExpanded(!isExpanded)}
-            className="mt-6 flex items-center gap-2 text-sm font-medium text-purple-400 hover:text-purple-300 transition-colors py-2 px-4 rounded-lg hover:bg-purple-500/10 w-fit"
+            aria-expanded={isExpanded}
+            aria-controls={listId}
+            className="mt-6 flex items-center gap-2 text-sm font-medium text-purple-300 hover:text-purple-200 transition-colors py-2 px-4 rounded-lg border border-purple-500/20 bg-purple-500/5 hover:bg-purple-500/10 w-fit"
           >
             {isExpanded ? (
               <>
@@ -140,26 +146,23 @@ const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
         )}
 
       </div>
-    </div>
+    </Reveal>
   );
 };
 
 export default function ExperienceElegant() {
   return (
-    <section id="experience" className="relative py-20 bg-[#0a0a0a] scroll-mt-20">
-      <div className="max-w-5xl mx-auto px-4">
-        
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Experience</span>
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            My career journey building scalable applications and solving complex technical challenges
-          </p>
-        </div>
-        
+    <section id="experience" className="relative py-24 md:py-28 bg-[#0a0a0a]">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <SectionHeading
+          eyebrow="Experience"
+          title="Professional"
+          highlight="Experience"
+          description="My career journey building scalable applications and solving complex technical challenges"
+        />
+
         <div className="relative">
-          <div className="absolute left-[15px] md:left-[39px] top-2 bottom-0 w-[2px] bg-gradient-to-b from-purple-500 via-blue-500/50 to-transparent" />
+          <div className="absolute left-[15px] md:left-[39px] top-2 bottom-0 w-[2px] bg-gradient-to-b from-pink-500 via-purple-500/50 to-transparent" />
 
           <div className="space-y-12">
             {experienceData.map((exp, index) => (

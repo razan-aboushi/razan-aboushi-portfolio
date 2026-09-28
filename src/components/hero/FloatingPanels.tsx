@@ -1,4 +1,4 @@
-import { motion, useReducedMotion, useTransform, MotionValue } from "framer-motion";
+import { m, useReducedMotion, useTransform, MotionValue } from "framer-motion";
 import { ReactNode } from "react";
 
 export interface Parallax {
@@ -102,12 +102,12 @@ export function GlassPanel({
   const py = useTransform(parallax ? parallax.y : noParallax, (v) => v * depth);
 
   return (
-    <motion.div
+    <m.div
       className={className}
       style={parallax && !prefersReducedMotion ? { x: px, y: py } : undefined}
     >
-      <motion.div
-        className={`overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35)] ${contentClassName}`}
+      <m.div
+        className={`overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.03] shadow-[0_8px_32px_rgba(0,0,0,0.35)] ${contentClassName}`}
         initial={{ opacity: 0, y: 24, scale: 0.94 }}
         animate={
           prefersReducedMotion
@@ -125,8 +125,8 @@ export function GlassPanel({
         }
       >
         {children}
-      </motion.div>
-    </motion.div>
+      </m.div>
+    </m.div>
   );
 }
 
@@ -170,7 +170,7 @@ export function CodeWindow({ className = "", delay = 0, parallax, depth = 9 }: F
       </div>
       <div className="p-3.5 font-mono text-[11px] leading-relaxed">
         {CODE_LINES.map((line, i) => (
-          <motion.div
+          <m.div
             key={i}
             className="whitespace-pre overflow-hidden"
             initial={{ opacity: 0 }}
@@ -193,7 +193,7 @@ export function CodeWindow({ className = "", delay = 0, parallax, depth = 9 }: F
                 {seg.text}
               </span>
             ))}
-          </motion.div>
+          </m.div>
         ))}
       </div>
     </GlassPanel>
@@ -206,7 +206,7 @@ const TERMINAL_LINES = [
   { prompt: "$", text: "npm run build", color: "text-white/60" },
   { prompt: "✓", text: "Compiled successfully", color: "text-emerald-400" },
   { prompt: "$", text: "git commit -m \"ship it\"", color: "text-white/60" },
-  { prompt: "✓", text: "Core Web Vitals: 98/100", color: "text-cyan-300" },
+  { prompt: "✓", text: "Core Web Vitals +30%", color: "text-cyan-300" },
 ];
 
 export function TerminalWindow({ className = "", delay = 0, parallax, depth = 11 }: FloatingWindowProps) {
@@ -228,7 +228,7 @@ export function TerminalWindow({ className = "", delay = 0, parallax, depth = 11
       </div>
       <div className="p-3.5 font-mono text-[11px] leading-relaxed space-y-1.5">
         {TERMINAL_LINES.map((line, i) => (
-          <motion.div
+          <m.div
             key={i}
             initial={{ opacity: 0 }}
             animate={prefersReducedMotion ? { opacity: 1 } : { opacity: [0, 1, 1, 0] }}
@@ -247,7 +247,7 @@ export function TerminalWindow({ className = "", delay = 0, parallax, depth = 11
           >
             <span className="text-purple-400">{line.prompt}</span>{" "}
             <span className={line.color}>{line.text}</span>
-          </motion.div>
+          </m.div>
         ))}
       </div>
     </GlassPanel>
@@ -313,7 +313,7 @@ export function StatCard({ label, value, bars, color, className = "", delay = 0,
       <p className="text-xl font-bold text-white mb-2">{value}</p>
       <div className="flex items-end gap-1 h-6">
         {bars.map((h, i) => (
-          <motion.span
+          <m.span
             key={i}
             className="flex-1 rounded-sm"
             style={{ background: color }}

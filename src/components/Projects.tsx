@@ -1,4 +1,6 @@
 import { Code, Globe, ExternalLink, GitBranch, Server } from "lucide-react";
+import SectionHeading from "./ui/SectionHeading";
+import Reveal, { staggerDelay } from "./ui/Reveal";
 
 const projectsData = [
   {
@@ -132,22 +134,22 @@ const standardProjects = projectsData.filter(p => !p.featured);
 
 export default function ProjectsElegant() {
   return (
-    <section id="projects" className="relative py-24 bg-[#0a0a0a]">
+    <section id="projects" className="relative py-24 md:py-28 bg-[#0a0a0a]">
       <div className="max-w-6xl mx-auto px-6">
-        
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Work</span>
-          </h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <SectionHeading
+          eyebrow="Projects"
+          title="Featured"
+          highlight="Work"
+          description="Full-stack applications, real-time systems, and experiments I've designed and built end to end"
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
           {featuredProjects.map((project, index) => {
             const Icon = project.icon;
             return (
-              <div 
-                key={index}
-                className="group relative flex flex-col justify-between p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 hover:bg-white/[0.07] transition-all duration-300 overflow-hidden"
+              <Reveal key={project.title} delay={staggerDelay(index)} className="h-full">
+              <div
+                className="group relative flex h-full flex-col justify-between p-6 sm:p-8 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-purple-500/50 hover:bg-white/[0.06] hover:-translate-y-1 transition-all duration-300 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
@@ -189,39 +191,42 @@ export default function ProjectsElegant() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-sm font-medium text-white px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
                     >
-                      <GitBranch size={16} />
+                      <GitBranch size={16} aria-hidden="true" />
                       Source Code
                     </a>
                   )}
                 </div>
               </div>
+              </Reveal>
             );
           })}
         </div>
 
-        <h3 className="text-2xl font-bold text-white mb-6 text-center">Other Projects & Games</h3>
+        <Reveal>
+          <h3 className="text-2xl font-bold text-white mb-6 text-center">Other Projects & Games</h3>
+        </Reveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-            {standardProjects.map((project, index) => {
-              return (
-                <a 
-                  key={index} 
-                  href={project.links.github} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="p-5 rounded-xl bg-white/5 border border-white/5 hover:border-gray-600 hover:bg-white/[0.07] transition-all duration-300 flex flex-col h-full group"
-                >
-                  <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-400 transition-colors">{project.title}</h4>
-                  <p className="text-sm text-gray-500 mb-4 flex-grow line-clamp-3">{project.description}</p>
-                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
-                    <span className="text-xs text-gray-600">{project.technologies[0]}</span>
-                    <GitBranch size={18} className="text-gray-400 group-hover:text-white transition-colors" />
-                  </div>
-                </a>
-              )
-            })}
+          {standardProjects.map((project, index) => (
+            <Reveal key={project.title} delay={staggerDelay(index % 4)} className="h-full">
+              <a
+                href={project.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${project.title} — view source on GitHub (opens in a new tab)`}
+                className="p-5 rounded-xl bg-white/[0.04] border border-white/10 hover:border-purple-500/40 hover:bg-white/[0.06] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group"
+              >
+                <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">{project.title}</h4>
+                <p className="text-sm text-gray-400 mb-4 flex-grow line-clamp-3">{project.description}</p>
+                <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
+                  <span className="text-xs text-gray-300 px-2 py-0.5 rounded-md bg-white/5 border border-white/10">{project.technologies[0]}</span>
+                  <GitBranch size={18} className="text-gray-400 group-hover:text-white transition-colors" aria-hidden="true" />
+                </div>
+              </a>
+            </Reveal>
+          ))}
         </div>
-        
+
         <div className="flex justify-center">
           <a
             href="https://github.com/razan-aboushi"

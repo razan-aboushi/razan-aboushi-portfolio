@@ -51,14 +51,17 @@ export default function RotatingTitle() {
   }, [text, phase, roleIndex, prefersReducedMotion]);
 
   return (
-    <span className="inline-flex items-center text-lg sm:text-xl md:text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400">
-      {text}
-      {!prefersReducedMotion && (
-        <span
-          aria-hidden="true"
-          className="ml-1 inline-block h-[1.1em] w-[2px] translate-y-[1px] animate-[blink_1s_steps(1)_infinite] bg-cyan-300"
-        />
-      )}
-    </span>
+    <>
+      <span className="sr-only">{ROLES.join(", ")}</span>
+      <span
+        aria-hidden="true"
+        className="text-lg sm:text-xl md:text-2xl font-medium text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400"
+      >
+        {text}
+        {!prefersReducedMotion && (
+          <span className="ml-1 inline-block h-[1.1em] w-[2px] translate-y-[3px] animate-[blink_1s_steps(1)_infinite] bg-cyan-300" />
+        )}
+      </span>
+    </>
   );
 }

@@ -1,4 +1,4 @@
-import { motion, useReducedMotion, useTransform } from "framer-motion";
+import { m, useReducedMotion, useTransform } from "framer-motion";
 import { Parallax } from "./FloatingPanels";
 
 interface MonitorProps {
@@ -35,7 +35,7 @@ function MiniCodeLines({ variant }: { variant: MonitorProps["variant"] }) {
   return (
     <div className="flex flex-col gap-1.5 p-3">
       {rows.map((row, i) => (
-        <motion.div
+        <m.div
           key={i}
           className={`h-1.5 rounded-full ${row.c}`}
           initial={{ width: 0, opacity: 0 }}
@@ -65,8 +65,8 @@ function MiniCodeLines({ variant }: { variant: MonitorProps["variant"] }) {
 function Monitor({ className = "", rotateY = 0, delay = 0, variant }: MonitorProps) {
   const prefersReducedMotion = useReducedMotion();
   return (
-    <motion.div
-      className={`absolute rounded-xl border border-white/10 bg-white/[0.05] backdrop-blur-xl shadow-[0_0_50px_rgba(139,92,246,0.15)] overflow-hidden ${className}`}
+    <m.div
+      className={`absolute rounded-xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.03] shadow-[0_0_50px_rgba(139,92,246,0.15)] overflow-hidden ${className}`}
       style={{ transformPerspective: 900, rotateY }}
       initial={{ opacity: 0, y: 30 }}
       animate={
@@ -86,7 +86,7 @@ function Monitor({ className = "", rotateY = 0, delay = 0, variant }: MonitorPro
         <span className="h-1.5 w-1.5 rounded-full bg-cyan-400/70" />
       </div>
       <MiniCodeLines variant={variant} />
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -96,7 +96,7 @@ function Laptop({ className = "", delay = 0 }: { className?: string; delay?: num
   const prefersReducedMotion = useReducedMotion();
   return (
     <div className={`absolute ${className}`}>
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={
           prefersReducedMotion
@@ -109,7 +109,7 @@ function Laptop({ className = "", delay = 0 }: { className?: string; delay?: num
             : { opacity: { duration: 0.7, delay }, y: { duration: 7, delay, repeat: Infinity, ease: "easeInOut" } }
         }
       >
-        <div className="w-full aspect-[4/3] rounded-t-lg border border-white/10 bg-white/[0.05] backdrop-blur-xl shadow-[0_0_40px_rgba(139,92,246,0.15)] overflow-hidden">
+        <div className="w-full aspect-[4/3] rounded-t-lg border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.03] shadow-[0_0_40px_rgba(139,92,246,0.15)] overflow-hidden">
           <MiniCodeLines variant="editor" />
         </div>
         <div
@@ -117,7 +117,7 @@ function Laptop({ className = "", delay = 0 }: { className?: string; delay?: num
           style={{ clipPath: "polygon(8% 0, 92% 0, 100% 100%, 0% 100%)" }}
         />
         <div className="absolute -bottom-1 left-1/2 h-0.5 w-2/3 -translate-x-1/2 rounded-full bg-cyan-300/70 blur-[2px] animate-glow-breathe" />
-      </motion.div>
+      </m.div>
     </div>
   );
 }
@@ -131,7 +131,7 @@ function CoffeeMug({ className = "", delay = 0 }: { className?: string; delay?: 
   ];
 
   return (
-    <motion.svg
+    <m.svg
       viewBox="0 0 60 60"
       className={`absolute ${className}`}
       initial={{ opacity: 0, y: 16 }}
@@ -161,7 +161,7 @@ function CoffeeMug({ className = "", delay = 0 }: { className?: string; delay?: 
       />
       {!prefersReducedMotion &&
         steamPaths.map((d, i) => (
-          <motion.path
+          <m.path
             key={i}
             d={d}
             fill="none"
@@ -173,7 +173,7 @@ function CoffeeMug({ className = "", delay = 0 }: { className?: string; delay?: 
             transition={{ duration: 3.5, delay: delay + i * 1.1, repeat: Infinity, ease: "easeInOut" }}
           />
         ))}
-    </motion.svg>
+    </m.svg>
   );
 }
 
@@ -189,7 +189,7 @@ export default function DeveloperScene({ parallax, className = "" }: DeveloperSc
   const sceneY = useTransform(parallax ? parallax.y : noParallax, (v) => v * 4);
 
   return (
-    <motion.div
+    <m.div
       className={`pointer-events-none absolute inset-x-0 bottom-0 h-[32%] sm:h-[36%] flex items-end justify-center opacity-70 ${className}`}
       style={{
         WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 45%)",
@@ -207,13 +207,13 @@ export default function DeveloperScene({ parallax, className = "" }: DeveloperSc
       {/* side monitors */}
       <Monitor
         variant="terminal"
-        className="bottom-10 left-[10%] sm:left-[16%] w-20 sm:w-28 h-14 sm:h-20"
+        className="bottom-8left-[10%] sm:left-[16%] w-20 sm:w-28 h-14 sm:h-20"
         rotateY={22}
         delay={0.2}
       />
       <Monitor
         variant="preview"
-        className="bottom-10 right-[10%] sm:right-[16%] w-20 sm:w-28 h-14 sm:h-20"
+        className="bottom-8right-[10%] sm:right-[16%] w-20 sm:w-28 h-14 sm:h-20"
         rotateY={-22}
         delay={0.4}
       />
@@ -221,7 +221,7 @@ export default function DeveloperScene({ parallax, className = "" }: DeveloperSc
       {/* center curved monitor */}
       <Monitor
         variant="editor"
-        className="bottom-14 sm:bottom-16 w-32 sm:w-40 h-20 sm:h-24"
+        className="bottom-12 w-32 sm:w-40 h-20 sm:h-[5.5rem]"
         delay={0}
       />
 
@@ -230,6 +230,6 @@ export default function DeveloperScene({ parallax, className = "" }: DeveloperSc
 
       {/* coffee mug beside it */}
       <CoffeeMug className="bottom-2 left-[36%] sm:left-[38%] w-9 sm:w-10 opacity-70" delay={0.7} />
-    </motion.div>
+    </m.div>
   );
 }

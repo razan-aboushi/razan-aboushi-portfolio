@@ -1,83 +1,100 @@
-import { Code, GitBranch, Mail } from 'lucide-react';
+import { ArrowUp, Download, Mail, MapPin } from 'lucide-react';
+import SocialIconLinks, { CONTACT_EMAIL } from './SocialLinks';
+import Reveal from './ui/Reveal';
+import { RESUME_FILE, RESUME_URL } from '../utils/publicAsset';
+
+const footerLinks = [
+  { name: "Skills", href: "#skills" },
+  { name: "Experience", href: "#experience" },
+  { name: "Packages", href: "#packages" },
+  { name: "Projects", href: "#projects" },
+  { name: "Education", href: "#education" },
+  { name: "Articles", href: "#articles" },
+];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gray-950 border-t border-gray-800 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+    <footer className="relative overflow-hidden border-t border-white/10 bg-[#07070a]">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="absolute left-1/2 top-0 h-[360px] w-[900px] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-700/15 blur-[120px]" />
       </div>
-      
-      <div className="relative max-w-6xl mx-auto px-6 py-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex flex-col items-center md:items-start space-y-3">
-            <div className="flex items-center gap-2 text-gray-300">
-              <Code className="w-4 h-4 text-blue-500" />
-              <span className="text-sm font-medium">
-                © {currentYear} Razan Aboushi. All Rights Reserved.
+
+      <div className="relative max-w-6xl mx-auto px-6">
+        {/* Closing call to action */}
+        <Reveal className="py-16 md:py-20 text-center border-b border-white/10">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
+            Let's build something{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400">
+              great together
+            </span>
+          </h2>
+          <p className="text-gray-400 text-base md:text-lg max-w-xl mx-auto mb-8">
+            Have a role, a project, or an idea in mind? My inbox is always open.
+          </p>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 shadow-[0_0_25px_rgba(139,92,246,0.35)] hover:shadow-[0_0_40px_rgba(236,72,153,0.45)] hover:scale-[1.03] transition-all duration-300"
+            >
+              <Mail size={18} aria-hidden="true" />
+              {CONTACT_EMAIL}
+            </a>
+            <a
+              href={RESUME_URL}
+              download={RESUME_FILE}
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white bg-white/5 border border-white/15 hover:bg-white/10 transition-colors"
+            >
+              <Download size={18} aria-hidden="true" />
+              Download Resume
+            </a>
+          </div>
+        </Reveal>
+
+        <div className="grid gap-10 py-12 md:grid-cols-3 md:items-start">
+          <div className="flex flex-col items-center md:items-start gap-3 text-center md:text-left">
+            <a href="#home" className="flex items-center gap-3 rounded-xl">
+              <span aria-hidden="true" className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-xl font-black tracking-tighter text-white">
+                R<span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400">A</span>
               </span>
-            </div>
-            <div className="text-gray-400 text-sm space-y-1 text-center md:text-left">
-              <p className="font-medium text-gray-300">Full Stack Software Engineer</p>
-              <p className="text-xs">Building scalable web applications with modern technologies</p>
-            </div>
+              <span className="text-left">
+                <span className="block text-base font-bold text-white leading-tight">Razan Aboushi</span>
+                <span className="block text-sm text-gray-400">Full Stack Engineer</span>
+              </span>
+            </a>
+            <p className="flex items-center gap-1.5 text-sm text-gray-400">
+              <MapPin size={14} className="text-pink-400" aria-hidden="true" />
+              Amman, Jordan
+            </p>
           </div>
 
-          <div className="flex flex-col items-center space-y-3">
-            <h3 className="text-gray-300 font-medium text-sm">Connect</h3>
-            <div className="flex items-center gap-4">
-              <a
-                href="https://github.com/razan-aboushi"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="text-gray-400 hover:text-white transition-colors duration-200"
-              >
-                <GitBranch className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/razan-aboushi/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="text-gray-400 hover:text-[#0a66c2] transition-colors duration-200"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                  <rect width="4" height="12" x="2" y="9"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-              </a>
-              <a
-                href="mailto:razan.aboushi@example.com"
-                aria-label="Email"
-                className="text-gray-400 hover:text-blue-500 transition-colors duration-200"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
+          <nav aria-label="Footer" className="flex justify-center">
+            <ul className="grid grid-cols-3 gap-x-8 gap-y-3 text-sm">
+              {footerLinks.map((link) => (
+                <li key={link.name}>
+                  <a href={link.href} className="text-gray-400 hover:text-white transition-colors">
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-          <div className="flex flex-col items-center md:items-end space-y-3">
-            <div className="text-gray-400 text-sm">
-              <span>Available for opportunities</span>
-            </div>
-            <p className="text-xs text-gray-500">Jordan</p>
+          <div className="flex justify-center md:justify-end">
+            <SocialIconLinks />
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-gray-500 text-center">
-              Specializing in React, Next.js and JS frameworks, TypeScript, and Performance Optimization
-            </p>
-            <div className="flex items-center gap-2 text-xs text-gray-500">
-              <span>Jordan</span>
-              <span>•</span>
-              <span>Full Stack Developer</span>
-            </div>
-          </div>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 py-6 text-sm text-gray-400">
+          <p>© {currentYear} Razan Aboushi. All rights reserved.</p>
+          <a
+            href="#home"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10 hover:text-white transition-colors"
+          >
+            Back to top
+            <ArrowUp size={15} className="transition-transform duration-300 group-hover:-translate-y-0.5" aria-hidden="true" />
+          </a>
         </div>
       </div>
     </footer>

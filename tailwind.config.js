@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        // Wide enough for the hero's code/terminal windows to sit beside the name without overlapping it.
+        desk: '1440px',
+      },
       colors: {
         primary: '#8b5cf6',
         secondary: '#ec4899',
@@ -12,31 +16,12 @@ module.exports = {
         navy: '#0f172a',
       },
       animation: {
-        'fade-in': 'fadeIn 0.6s ease-out forwards',
-        'slide-in-left': 'slideInLeft 0.6s ease-out forwards',
-        'slide-in-right': 'slideInRight 0.6s ease-out forwards',
-        'scale-in': 'scaleIn 0.4s ease-out forwards',
         'particle-drift': 'particleDrift 18s linear infinite',
         'glow-breathe': 'glowBreathe 5s ease-in-out infinite',
         'gradient-shift': 'gradientShift 12s ease-in-out infinite',
+        'aurora': 'aurora 18s ease-in-out infinite alternate',
       },
       keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        slideInLeft: {
-          '0%': { opacity: '0', transform: 'translateX(-20px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-        slideInRight: {
-          '0%': { opacity: '0', transform: 'translateX(20px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-        scaleIn: {
-          '0%': { opacity: '0', transform: 'scale(0.8)' },
-          '100%': { opacity: '1', transform: 'scale(1)' },
-        },
         particleDrift: {
           '0%': { transform: 'translate(0, 0)', opacity: '0' },
           '10%': { opacity: '1' },
@@ -50,6 +35,12 @@ module.exports = {
         gradientShift: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
+        },
+        // Transform-only so the drifting background blobs stay on the compositor (no repaints).
+        aurora: {
+          '0%': { transform: 'translate3d(0, 0, 0) scale(1)' },
+          '50%': { transform: 'translate3d(6%, -4%, 0) scale(1.08)' },
+          '100%': { transform: 'translate3d(-5%, 5%, 0) scale(0.96)' },
         },
       },
     },
