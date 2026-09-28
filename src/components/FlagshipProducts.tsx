@@ -192,9 +192,15 @@ function ScreenFrame({ product }: { product: Product }) {
             <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-            <span className="ml-3 truncate rounded-md bg-white/5 px-3 py-1 font-mono text-[11px] text-gray-400">{host}</span>
+            <span className="ml-3 min-w-0 truncate rounded-md bg-white/5 px-3 py-1 font-mono text-[11px] text-gray-400">{host}</span>
           </div>
           <div className="relative aspect-[16/10] overflow-hidden">
+            <picture>
+              <source
+                type="image/webp"
+                srcSet={`${publicAsset(`projects/${name}-720.webp`)} 720w, ${publicAsset(`projects/${name}-1280.webp`)} 1280w`}
+                sizes="(min-width: 1024px) 620px, 92vw"
+              />
             <img
               src={publicAsset(`projects/${name}-1280.jpg`)}
               srcSet={`${publicAsset(`projects/${name}-720.jpg`)} 720w, ${publicAsset(`projects/${name}-1280.jpg`)} 1280w`}
@@ -206,6 +212,7 @@ function ScreenFrame({ product }: { product: Product }) {
               alt={alt}
               className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
+            </picture>
             {product.overlay === "scan" && <ScanOverlay />}
             {/* glare that follows the cursor, like light moving across glass */}
             <div
@@ -305,6 +312,7 @@ function ProductCopy({ product, index }: { product: Product; index: number }) {
           <span className="bg-gradient-to-r from-pink-400 to-cyan-400 bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 transition-[background-size] duration-300 group-hover/link:bg-[length:100%_1px]">
             {product.secondary.label}
           </span>
+          <span className="sr-only"> — {product.title} {product.highlight}</span>
           <ArrowUpRight size={16} className="transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" aria-hidden="true" />
         </a>
       </div>
@@ -316,10 +324,10 @@ function Showcase({ product, index }: { product: Product; index: number }) {
   const reverse = index % 2 === 1;
   return (
     <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
-      <Reveal className={`lg:col-span-7 ${reverse ? "lg:order-2" : ""}`}>
+      <Reveal className={`min-w-0 lg:col-span-7 ${reverse ? "lg:order-2" : ""}`}>
         <ScreenFrame product={product} />
       </Reveal>
-      <Reveal delay={0.12} className={`lg:col-span-5 ${reverse ? "lg:order-1" : ""}`}>
+      <Reveal delay={0.12} className={`min-w-0 lg:col-span-5 ${reverse ? "lg:order-1" : ""}`}>
         <ProductCopy product={product} index={index} />
       </Reveal>
     </div>

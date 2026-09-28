@@ -161,6 +161,7 @@ export default function NpmPackages() {
                 >
                   <ExternalLink size={16} className="text-rose-400" />
                   View Package
+                  <span className="sr-only"> {pkg.name} on npm</span>
                 </a>
                 <a
                   href={pkg.links.github}
@@ -170,6 +171,7 @@ export default function NpmPackages() {
                 >
                   <GitBranch size={16} />
                   Source Code
+                  <span className="sr-only"> for {pkg.name} on GitHub</span>
                 </a>
               </div>
 

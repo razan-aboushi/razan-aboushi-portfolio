@@ -94,7 +94,6 @@ export default function EducationElegant() {
                       href={edu.certificateUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`View Certificate — ${edu.institution} (PDF, opens in a new tab)`}
                       className={`flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-colors ${
                         edu.theme === 'blue'
                           ? 'bg-blue-500/10 text-blue-300 hover:bg-blue-500/20 border border-blue-500/20'
@@ -102,6 +101,7 @@ export default function EducationElegant() {
                       }`}
                     >
                       View Certificate
+                      <span className="sr-only">: {edu.degree}, {edu.institution} (PDF, opens in a new tab)</span>
                       <ExternalLink size={15} aria-hidden="true" />
                     </a>
                   </div>

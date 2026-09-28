@@ -104,11 +104,11 @@ export default function MediumArticles() {
                     href={article.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Read Article: ${article.title} (opens in a new tab)`}
                     className="inline-flex items-center gap-2 text-white font-medium text-sm px-5 py-2.5 rounded-full bg-white/5 border border-white/10 group-hover:bg-white/10 group-hover:border-purple-500/50 transition-all duration-300 w-fit mt-auto after:absolute after:inset-0 after:content-['']"
                   >
                     <BookOpen className="w-4 h-4 text-purple-400" aria-hidden="true" />
                     Read Article
+                    <span className="sr-only">: {article.title} (opens in a new tab)</span>
                     <ExternalLink className="w-3.5 h-3.5 text-gray-400" aria-hidden="true" />
                   </a>
                 </div>

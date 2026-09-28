@@ -196,6 +196,7 @@ export default function ProjectsElegant() {
                     >
                       <GitBranch size={16} aria-hidden="true" />
                       Source Code
+                      <span className="sr-only"> for {project.title} on GitHub</span>
                     </a>
                   )}
                 </div>
@@ -235,10 +236,10 @@ export default function ProjectsElegant() {
             href="https://github.com/razan-aboushi"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 text-white rounded-full font-semibold border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all duration-300"
+            className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-white/5 text-white rounded-full font-semibold border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all duration-300"
           >
             <GitBranch size={20} className="group-hover:text-purple-400 transition-colors" />
-            <span>View All 39+ Projects on GitHub</span>
+            <span className="text-sm sm:text-base whitespace-nowrap">View All 39+ Projects on GitHub</span>
             <ExternalLink size={16} className="text-gray-500 group-hover:text-white transition-colors" />
           </a>
         </div>

@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { m, useTransform } from "framer-motion";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
+import { useHasMounted } from "../hooks/useHasMounted";
 import { Download, Mail, Sparkles, ChevronDown, ArrowRight } from "lucide-react";
 import { useMouseParallax } from "./hero/useMouseParallax";
 import RotatingTitle from "./hero/RotatingTitle";
@@ -32,6 +33,9 @@ export default function HeroSection() {
   const prefersReducedMotion = usePrefersReducedMotion();
   const { x, y } = useMouseParallax(containerRef);
   const parallax = { x, y };
+  // Decorative layers mount after hydration: they already fade in, and keeping them out of the
+  // pre-rendered HTML gives crawlers a much leaner DOM.
+  const mounted = useHasMounted();
   // Parallax values are normalized (-0.5..0.5); scale them to pixels so the glow trails the cursor.
   const spotX = useTransform(x, (v) => v * 720);
   const spotY = useTransform(y, (v) => v * 480);
@@ -81,14 +85,15 @@ export default function HeroSection() {
         />
       )}
 
-      <ParticleField />
+      {mounted && <ParticleField />}
 
       {/* Developer desk scene — only when the viewport is tall enough that it sits below the social links */}
       <div className="hidden [@media(min-width:768px)_and_(min-height:880px)]:block absolute inset-0 z-[2]" aria-hidden="true">
-        <DeveloperScene parallax={parallax} />
+        {mounted && <DeveloperScene parallax={parallax} />}
       </div>
 
       {/* Floating UI panels — only where there's room beside the headline (measured, see desk breakpoint) */}
+      {mounted && (
       <div className="hidden xl:block absolute inset-0 z-[3]" aria-hidden="true">
         <CodeWindow className="hidden desk:block absolute top-[15%] left-[5%] 2xl:left-[7%]" delay={0.3} parallax={parallax} depth={9} />
         <TerminalWindow className="hidden desk:block absolute top-[17%] right-[5%] 2xl:right-[7%]" delay={0.5} parallax={parallax} depth={11} />
@@ -103,6 +108,7 @@ export default function HeroSection() {
         <StatCard label="Core Web Vitals" value="+30%" bars={[35, 50, 62, 78, 95]} color="#06b6d4" className="absolute bottom-[9%] left-[4%] 2xl:left-[6%]" delay={1} parallax={parallax} depth={9} />
         <StatCard label="Page Load Time" value="−2.5s" bars={[95, 80, 62, 45, 30]} color="#ec4899" className="absolute bottom-[9%] right-[4%] 2xl:right-[6%]" delay={1.15} parallax={parallax} depth={9} />
       </div>
+      )}
 
       {/* Centered hero content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 flex flex-col items-center text-center">

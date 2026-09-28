@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
+import { useHasMounted } from "../hooks/useHasMounted";
 import Reveal, { staggerDelay } from "./ui/Reveal";
 import { npmData } from "./npmPackages";
 
@@ -86,6 +87,7 @@ function TechList({ hidden = false }: { hidden?: boolean }) {
 }
 
 export default function Highlights() {
+  const mounted = useHasMounted();
   return (
     <section aria-label="Highlights" className="relative bg-[#0a0a0a] pt-10 pb-4 md:pt-14">
       <div className="max-w-6xl mx-auto px-6">
@@ -114,7 +116,8 @@ export default function Highlights() {
         >
           <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
             <TechList />
-            <TechList hidden />
+            {/* the duplicate only exists for the seamless loop, so it is added after hydration */}
+            {mounted && <TechList hidden />}
           </div>
         </div>
       </Reveal>
