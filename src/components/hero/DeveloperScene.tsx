@@ -1,4 +1,5 @@
-import { m, useReducedMotion, useTransform } from "framer-motion";
+import { m, useTransform } from "framer-motion";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import { Parallax } from "./FloatingPanels";
 
 interface MonitorProps {
@@ -9,7 +10,7 @@ interface MonitorProps {
 }
 
 function MiniCodeLines({ variant }: { variant: MonitorProps["variant"] }) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const rows =
     variant === "editor"
       ? [
@@ -63,7 +64,7 @@ function MiniCodeLines({ variant }: { variant: MonitorProps["variant"] }) {
 }
 
 function Monitor({ className = "", rotateY = 0, delay = 0, variant }: MonitorProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
   return (
     <m.div
       className={`absolute rounded-xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.03] shadow-[0_0_50px_rgba(139,92,246,0.15)] overflow-hidden ${className}`}
@@ -93,7 +94,7 @@ function Monitor({ className = "", rotateY = 0, delay = 0, variant }: MonitorPro
 /** Open laptop sitting on the desk, closest to the viewer — screen mirrors the
  * glass-monitor style so it reads as "the same desk", not a separate object. */
 function Laptop({ className = "", delay = 0 }: { className?: string; delay?: number }) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
   return (
     <div className={`absolute ${className}`}>
       <m.div
@@ -124,7 +125,7 @@ function Laptop({ className = "", delay = 0 }: { className?: string; delay?: num
 
 /** Coffee mug with slowly rising steam — a small, unmistakably "desk" detail. */
 function CoffeeMug({ className = "", delay = 0 }: { className?: string; delay?: number }) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const steamPaths = [
     "M22 30 C18 24, 26 20, 22 14",
     "M30 30 C26 24, 34 20, 30 14",
@@ -183,7 +184,7 @@ interface DeveloperSceneProps {
 }
 
 export default function DeveloperScene({ parallax, className = "" }: DeveloperSceneProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const noParallax = useTransform(() => 0);
   const sceneX = useTransform(parallax ? parallax.x : noParallax, (v) => v * 4);
   const sceneY = useTransform(parallax ? parallax.y : noParallax, (v) => v * 4);

@@ -1,6 +1,7 @@
 import { Code, Globe, ExternalLink, GitBranch, Server } from "lucide-react";
 import SectionHeading from "./ui/SectionHeading";
 import Reveal, { staggerDelay } from "./ui/Reveal";
+import FlagshipProducts from "./FlagshipProducts";
 
 const projectsData = [
   {
@@ -142,6 +143,8 @@ export default function ProjectsElegant() {
           highlight="Work"
           description="Full-stack applications, real-time systems, and experiments I've designed and built end to end"
         />
+
+        <FlagshipProducts />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
           {featuredProjects.map((project, index) => {

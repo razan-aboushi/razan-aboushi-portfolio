@@ -21,6 +21,10 @@ module.exports = {
         'gradient-shift': 'gradientShift 12s ease-in-out infinite',
         'aurora': 'aurora 18s ease-in-out infinite alternate',
         'marquee': 'marquee 45s linear infinite',
+        'scan': 'scan 4.8s cubic-bezier(0.45, 0, 0.55, 1) infinite',
+        'evidence': 'evidence 4.8s ease-out infinite',
+        'evidence-hit': 'evidenceHit 4.8s ease-out infinite',
+        'float': 'float 6s ease-in-out infinite',
       },
       keyframes: {
         particleDrift: {
@@ -36,6 +40,28 @@ module.exports = {
         gradientShift: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
+        },
+        // SEOLens showcase: the beam wrapper is as tall as the page mock, so 0→100% sweeps it top to bottom.
+        scan: {
+          '0%': { transform: 'translateY(0)', opacity: '0' },
+          '6%': { opacity: '1' },
+          '88%': { opacity: '1' },
+          '100%': { transform: 'translateY(100%)', opacity: '0' },
+        },
+        // Each chip/element runs these with a delay matching its height on the page, so it fires as the beam
+        // reaches it. Base styles stay visible, so reduced-motion users (animations disabled) see the final state.
+        evidence: {
+          '0%': { opacity: '0', transform: 'translateX(-10px) scale(0.9)' },
+          '7%, 70%': { opacity: '1', transform: 'translateX(0) scale(1)' },
+          '84%, 100%': { opacity: '0', transform: 'translateX(0) scale(1)' },
+        },
+        evidenceHit: {
+          '0%': { boxShadow: '0 0 0 1px rgba(236,72,153,0.9), 0 0 22px rgba(236,72,153,0.45)' },
+          '22%, 100%': { boxShadow: '0 0 0 1px rgba(255,255,255,0), 0 0 0 rgba(236,72,153,0)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-8px)' },
         },
         // The track holds two copies of the list, so sliding by half loops seamlessly.
         marquee: {

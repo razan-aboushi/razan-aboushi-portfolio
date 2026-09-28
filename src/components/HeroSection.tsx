@@ -1,5 +1,6 @@
 import { useRef } from "react";
-import { m, useReducedMotion, useTransform } from "framer-motion";
+import { m, useTransform } from "framer-motion";
+import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
 import { Download, Mail, Sparkles, ChevronDown, ArrowRight } from "lucide-react";
 import { useMouseParallax } from "./hero/useMouseParallax";
 import RotatingTitle from "./hero/RotatingTitle";
@@ -28,7 +29,7 @@ const fadeUp = (delay: number) => ({
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLElement | null>(null);
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const { x, y } = useMouseParallax(containerRef);
   const parallax = { x, y };
   // Parallax values are normalized (-0.5..0.5); scale them to pixels so the glow trails the cursor.

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { useInView, useReducedMotion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
 import Reveal, { staggerDelay } from "./ui/Reveal";
 import { npmData } from "./npmPackages";
 
@@ -17,15 +18,30 @@ const TECH = [
 
 const DOT_COLORS = ["bg-pink-400", "bg-purple-400", "bg-cyan-400"];
 
-/** Counts up once when scrolled into view; screen readers get the final value only. */
-function CountUp({ to, suffix }: { to: number; suffix: string }) {
+/**
+ * Counts up once when scrolled into view; screen readers get the final value only.
+ * The pre-rendered HTML carries the real number (what crawlers read); the browser resets it to 0
+ * only while the card is still offscreen, so a visitor never sees the value drop.
+ */
+export function CountUp({ to, suffix }: { to: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
-  const prefersReducedMotion = useReducedMotion();
-  const [current, setCurrent] = useState(prefersReducedMotion ? to : 0);
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const [current, setCurrent] = useState(to);
+  const done = useRef(false);
 
   useEffect(() => {
-    if (!inView) return;
+    const rect = ref.current?.getBoundingClientRect();
+    if (rect && rect.top < window.innerHeight && rect.bottom > 0) {
+      done.current = true; // already on screen at load: keep the final value, no animation
+      return;
+    }
+    setCurrent(0);
+  }, []);
+
+  useEffect(() => {
+    if (!inView || done.current) return;
+    done.current = true;
     if (prefersReducedMotion) {
       setCurrent(to);
       return;

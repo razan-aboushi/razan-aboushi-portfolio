@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
-import { m, useReducedMotion } from "framer-motion";
+import { m } from "framer-motion";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 
 interface RevealProps {
   children: ReactNode;
@@ -9,7 +10,7 @@ interface RevealProps {
 
 /** Fades content up once as it scrolls into view. Renders a plain div for reduced-motion users. */
 export default function Reveal({ children, className = "", delay = 0 }: RevealProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   if (prefersReducedMotion) {
     return <div className={className}>{children}</div>;

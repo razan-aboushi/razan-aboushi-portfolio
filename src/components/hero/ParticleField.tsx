@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useReducedMotion } from "framer-motion";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 
 interface Particle {
   id: number;
@@ -13,20 +13,33 @@ interface Particle {
 
 const COLORS = ["#ec4899", "#8b5cf6", "#06b6d4"];
 
+/** Small seeded PRNG (mulberry32): the build-time HTML and the browser must pick identical positions to hydrate. */
+function seededRandom(seed: number) {
+  return () => {
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+const round = (n: number) => Math.round(n * 100) / 100;
+
 function makeParticles(count: number): Particle[] {
+  const random = seededRandom(2023);
   return Array.from({ length: count }, (_, id) => ({
     id,
-    left: Math.random() * 100,
-    size: 2 + Math.random() * 3,
-    duration: 14 + Math.random() * 16,
-    delay: -Math.random() * 20,
+    left: round(random() * 100),
+    size: round(2 + random() * 3),
+    duration: round(14 + random() * 16),
+    delay: round(-random() * 20),
     color: COLORS[id % COLORS.length],
-    drift: (Math.random() - 0.5) * 60,
+    drift: round((random() - 0.5) * 60),
   }));
 }
 
 export default function ParticleField({ count = 34 }: { count?: number }) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const particles = useMemo(() => makeParticles(count), [count]);
 
   if (prefersReducedMotion) return null;

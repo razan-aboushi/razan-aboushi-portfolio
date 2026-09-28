@@ -1,4 +1,5 @@
-import { m, useReducedMotion, useTransform, MotionValue } from "framer-motion";
+import { m, useTransform, MotionValue } from "framer-motion";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import { ReactNode } from "react";
 
 export interface Parallax {
@@ -96,7 +97,7 @@ export function GlassPanel({
   parallax,
   depth = 7,
 }: GlassPanelProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const noParallax = useTransform(() => 0);
   const px = useTransform(parallax ? parallax.x : noParallax, (v) => v * depth);
   const py = useTransform(parallax ? parallax.y : noParallax, (v) => v * depth);
@@ -152,7 +153,7 @@ interface FloatingWindowProps {
 }
 
 export function CodeWindow({ className = "", delay = 0, parallax, depth = 9 }: FloatingWindowProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   return (
     <GlassPanel
@@ -210,7 +211,7 @@ const TERMINAL_LINES = [
 ];
 
 export function TerminalWindow({ className = "", delay = 0, parallax, depth = 11 }: FloatingWindowProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   return (
     <GlassPanel
@@ -298,7 +299,7 @@ interface StatCardProps {
 }
 
 export function StatCard({ label, value, bars, color, className = "", delay = 0, parallax, depth = 10 }: StatCardProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   return (
     <GlassPanel

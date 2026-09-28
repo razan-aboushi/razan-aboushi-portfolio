@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useReducedMotion } from "framer-motion";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 
 const ROLES = [
   "Full Stack Engineer",
@@ -16,13 +16,16 @@ const HOLD_MS = 1800;
 const PAUSE_MS = 400;
 
 export default function RotatingTitle() {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [roleIndex, setRoleIndex] = useState(0);
-  const [text, setText] = useState(prefersReducedMotion ? ROLES[0] : "");
+  const [text, setText] = useState("");
   const [phase, setPhase] = useState<"typing" | "holding" | "deleting" | "pausing">("typing");
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion) {
+      setText(ROLES[0]);
+      return;
+    }
     const current = ROLES[roleIndex];
     let timeout: ReturnType<typeof setTimeout>;
 

@@ -83,7 +83,8 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 py-6 text-sm text-gray-400">
-          <p>© {currentYear} Razan Aboushi. All rights reserved.</p>
+          {/* Pre-rendered at build time; a visit after New Year shouldn't count as a hydration mismatch. */}
+          <p suppressHydrationWarning>© {currentYear} Razan Aboushi. All rights reserved.</p>
           <a
             href="#home"
             className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10 hover:text-white transition-colors"
